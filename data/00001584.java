@@ -1,1 +1,1 @@
-public class TapBalanceGroupGroupTransformer extends RuleInsertionTransformer { public TapBalanceGroupGroupTransformer ( ) { super ( BalanceAssembly , new BalanceGroupGroupExpression ( ) , IntermediateTapElementFactory . TEMP_TAP ) ; } }
+public class ConsecutiveTapsExpressionGraph extends ExpressionGraph { public ConsecutiveTapsExpressionGraph() { super( SearchOrder.ReverseTopological ); this.arc( new FlowElementExpression( Tap.class ), ScopeExpression.ALL, new FlowElementExpression( ElementCapture.Primary, Tap.class ) ); } }

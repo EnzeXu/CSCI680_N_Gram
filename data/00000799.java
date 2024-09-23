@@ -1,1 +1,1 @@
-public class KeyFileEmptyException extends InvalidKeyFileException { private static final long serialVersionUID = -1630780661204212325L ; public KeyFileEmptyException ( ) { super ( ) ; } }
+public class KeyFileEmptyException extends InvalidKeyFileException { private static final long serialVersionUID = -1630780661204212325L; public KeyFileEmptyException() { super(); } }

@@ -1,1 +1,1 @@
-public class Failure extends TestCase { @ Override public void runTest ( ) { fail ( ) ; } }
+public class Failure extends TestCase { @Override public void runTest() { fail(); } }

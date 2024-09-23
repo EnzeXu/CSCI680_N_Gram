@@ -1,1 +1,1 @@
-public class AccumulatedSourceExpressionGraph extends ExpressionGraph { public AccumulatedSourceExpressionGraph ( ) { super ( SearchOrder . ReverseDepth ) ; this . arc ( new BoundariesElementExpression ( ElementCapture . Secondary ) , PathScopeExpression . ALL_BLOCKING , new FlowElementExpression ( ElementCapture . Primary , HashJoin . class ) ) ; } }
+public class Blort { public static int test(Zorch z) { z.zorch1(); return z.zorch2(5); } }

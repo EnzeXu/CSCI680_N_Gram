@@ -1,1 +1,1 @@
-public class GroupMergeToTapBoundaryExpressionGraph extends ExpressionGraph { public GroupMergeToTapBoundaryExpressionGraph ( ) { super ( SearchOrder . ReverseTopological ) ; this . arc ( new GroupOrMergeElementExpression ( ElementCapture . Primary ) , ScopeExpression . ALL , new TapOrBoundaryElementExpression ( ) ) ; } }
+public class Basic { String field = "this is a field"; String method() { return "this is a method result"; } }

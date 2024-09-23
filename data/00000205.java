@@ -1,1 +1,1 @@
-public class FeatureRecord { private int tag ; private int offset ; public FeatureRecord ( RandomAccessFileEmulator raf ) throws IOException { tag = raf . readInt ( ) ; offset = raf . readUnsignedShort ( ) ; } public int getTag ( ) { return tag ; } public int getOffset ( ) { return offset ; } }
+public class FeatureRecord { private int tag; private int offset; public FeatureRecord(RandomAccessFileEmulator raf) throws IOException { tag = raf.readInt(); offset = raf.readUnsignedShort(); } public int getTag() { return tag; } public int getOffset() { return offset; } }

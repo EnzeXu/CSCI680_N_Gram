@@ -1,1 +1,1 @@
-public class StringUtil { public static String makeArtifactNameString ( Artifact artifact ) { if ( artifact == null ) { return " < null artifact > " ; } return artifact . getGroupId ( ) + " : " + artifact . getArtifactId ( ) + " : " + artifact . getVersion ( ) ; } }
+public class StringUtil { public static String makeArtifactNameString(Artifact artifact) { if (artifact == null) { return "<null artifact>"; } return artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getVersion(); } }

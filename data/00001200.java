@@ -1,1 +1,1 @@
-public class SingleCloseableInputIterator extends SingleValueCloseableIterator < Closeable > { public SingleCloseableInputIterator ( Closeable input ) { super ( input ) ; } @ Override public void close ( ) throws IOException { getCloseableInput ( ) . close ( ) ; } }
+public class BoundaryBalanceSplitToStreamedHashJoinTransformer extends RuleInsertionTransformer { public BoundaryBalanceSplitToStreamedHashJoinTransformer() { super( BalanceAssembly, new BalanceSplitToStreamedHashJoinExpression(), ElementCapture.Secondary, BoundaryElementFactory.BOUNDARY_PIPE ); } }

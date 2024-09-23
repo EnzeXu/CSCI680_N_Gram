@@ -1,1 +1,1 @@
-public class Md5KeyStrategy extends DigestKeyStrategy { protected String digest ( String key ) { return StringUtils . md5Hex ( key ) ; } }
+public class Md5KeyStrategy extends DigestKeyStrategy { protected String digest(String key) { return StringUtils.md5Hex(key); } }

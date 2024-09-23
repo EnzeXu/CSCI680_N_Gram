@@ -1,1 +1,1 @@
-public class BottomUpBoundariesNodePartitioner extends ExpressionRulePartitioner { public BottomUpBoundariesNodePartitioner ( ) { super ( PartitionNodes , new RuleExpression ( new NoGroupJoinMergeBoundaryTapExpressionGraph ( ) , new BottomUpNoSplitConsecutiveBoundariesExpressionGraph ( ) ) , new ElementAnnotation ( ElementCapture . Primary , IORole . sink ) ) ; } }
+public class Zorch { public static void zorch1() { } public static int zorch2(int x) { return 1; } }

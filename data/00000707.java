@@ -1,1 +1,1 @@
-public class EmptyMapIterator extends AbstractEmptyIterator implements MapIterator , ResettableIterator { public static final MapIterator INSTANCE = new EmptyMapIterator ( ) ; protected EmptyMapIterator ( ) { super ( ) ; } }
+public class EmptyMapIterator extends AbstractEmptyIterator implements MapIterator, ResettableIterator { public static final MapIterator INSTANCE = new EmptyMapIterator(); protected EmptyMapIterator() { super(); } }

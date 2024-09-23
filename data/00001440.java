@@ -1,1 +1,1 @@
-public class PlannerLevelExpression extends RuleExpression { public PlannerLevelExpression ( Class < ? extends PlannerLevel > plannerLevelClass ) { super ( new PlannerLevelPipeExpressionGraph ( plannerLevelClass ) ) ; } }
+public class ValueIndexTuple extends IndexTuple { public ValueIndexTuple() { } public ValueIndexTuple( int index, Tuple tuple ) { super( index, tuple ); } }

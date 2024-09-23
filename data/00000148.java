@@ -1,1 +1,1 @@
-public class X extends A { public int x = a ; }
+public class X extends A { public int x = a; }

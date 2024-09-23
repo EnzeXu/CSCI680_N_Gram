@@ -1,1 +1,1 @@
-public class StreamedOnlySourcesPipelinePartitionExpression extends RuleExpression { public StreamedOnlySourcesPipelinePartitionExpression ( ) { super ( new NoGroupJoinTapExpressionGraph ( ) , new StreamedOnlySourcesExpressionGraph ( ) ) ; } }
+public class ApplyDebugLevelTransformer extends RuleContractedTransformer { public ApplyDebugLevelTransformer() { super( PreResolveAssembly, new PlannerLevelExpression( DebugLevel.class ) ); } }

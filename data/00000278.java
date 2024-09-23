@@ -1,1 +1,1 @@
-public class OverrideTestCase extends OneTestCase { @ Override public void testCase ( ) { } }
+public class OverrideTestCase extends OneTestCase { @Override public void testCase() { } }

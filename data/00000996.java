@@ -1,1 +1,1 @@
-public class BoundaryBalanceGroupSplitHashJoinTransformer extends RuleInsertionTransformer { public BoundaryBalanceGroupSplitHashJoinTransformer ( ) { super ( BalanceAssembly , new BalanceGroupSplitHashJoinExpression ( ) , BoundaryElementFactory . BOUNDARY_PIPE , InsertionGraphTransformer . Insertion . After ) ; } }
+public class Blort { public static int test(int x) { if (x == 0) { return 1; } else { try { x = test(x - 1); } catch (RuntimeException ex) { return 2; } x += test(x - 2); return x; } } }
