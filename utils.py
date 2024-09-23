@@ -4,6 +4,8 @@ import re
 import json
 import subprocess
 import tqdm
+import random
+import javalang
 
 from repo_names import *
 
@@ -163,6 +165,115 @@ def build_dataset_files(raw_repo_names, start, end):
 
     print(f"Index file saved to {index_save_path}")
 
+#YL split the files in folder "data" into train, validation and test sets, and write the generated sets into the folder "data_set"
+def split_the_files_in_data(source_dir, target_dir):
+    # Set the paths
+    data_dir = source_dir  # Your original data directory containing the .java files
+    output_dir = target_dir  # Folder where train, val, test sets will be stored
+
+    # Define the split ratios
+    train_ratio = 0.8  # 80% for training
+    val_ratio = 0.1  # 10% for validation
+    test_ratio = 0.1  # 10% for testing
+
+    # Create directories for train, val, and test sets
+    train_dir = os.path.join(output_dir, "train_set")
+    val_dir = os.path.join(output_dir, "val_set")
+    test_dir = os.path.join(output_dir, "test_set")
+
+    os.makedirs(train_dir, exist_ok=True)
+    os.makedirs(val_dir, exist_ok=True)
+    os.makedirs(test_dir, exist_ok=True)
+
+    # Get all .java files from the data directory
+    java_files = [f for f in os.listdir(data_dir) if f.endswith('.java')]
+
+    # Shuffle the list of files to ensure random selection
+    random.shuffle(java_files)
+
+    num_of_used_files = 1000
+    # Split the files based on the defined ratios
+    train_split = int(train_ratio * num_of_used_files )
+    val_split = int( ( train_ratio + val_ratio ) * num_of_used_files )
+
+    train_files = java_files[:train_split]
+    val_files = java_files[train_split:val_split]
+    test_files = java_files[val_split:num_of_used_files]
+
+    # Move the files to their respective directories
+    for file_name in train_files:
+        src_path = os.path.join(data_dir, file_name)
+        dest_path = os.path.join(train_dir, file_name)
+        shutil.copy(src_path, dest_path)
+    print("the file number in train_file is:",len(train_files) )
+
+    for file_name in val_files:
+        src_path = os.path.join(data_dir, file_name)
+        dest_path = os.path.join(val_dir, file_name)
+        shutil.copy(src_path, dest_path)
+    print("the file number in validation_file is:",len(val_files) )
+
+
+    for file_name in test_files:
+        src_path = os.path.join(data_dir, file_name)
+        dest_path = os.path.join(test_dir, file_name)
+        shutil.copy(src_path, dest_path)
+    print("the file number in test_file is:",len(test_files) )
+
+
+    print(f"Files have been split and moved to {output_dir}.")
+
+# YL, use the tokenizer "javalang" to tokenize the strings in the data_sets, and write the results into the folder named "train_set_tokenizer"
+
+# Function to tokenize Java code
+def tokenize_java_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        code = f.read()
+    tokens = list(javalang.tokenizer.tokenize(code))
+    return tokens
+
+
+# Function to write tokenized output to a new file
+def write_tokenized_output(output_path, tokens):
+    with open(output_path, 'w', encoding='utf-8') as f:
+        for token in tokens:
+            f.write(str(token) + '\n')
+
+def tokenize_data_sets():
+    # Define directories for input and output
+    input_dirs = {
+        "train_set": "data_sets/train_set",
+        "val_set": "data_sets/val_set",
+        "test_set": "data_sets/test_set"
+    }
+
+    output_dirs = {
+        "train_set_tokenized": "data_sets/train_set_tokenized",
+        "val_set_tokenized": "data_sets/val_set_tokenized",
+        "test_set_tokenized": "data_sets/test_set_tokenized"
+    }
+
+    # Create output directories if they don't exist
+    for output_dir in output_dirs.values():
+        os.makedirs(output_dir, exist_ok=True)
+
+
+    # Tokenize and save for each set (train/val/test)
+    for set_name, input_dir in input_dirs.items():
+        output_dir = output_dirs[f"{set_name}_tokenized"]
+        for java_file in os.listdir(input_dir):
+            if java_file.endswith(".java"):
+                input_file_path = os.path.join(input_dir, java_file)
+                output_file_path = os.path.join(output_dir, java_file)
+
+                # Tokenize the Java file
+                tokens = tokenize_java_file(input_file_path)
+                # print( "tokens:", tokens )
+                # Write tokenized content to a new file
+                write_tokenized_output(output_file_path, tokens)
+
+    print("Tokenization completed for all sets.")
+
 
 
 if __name__ == "__main__":
@@ -173,4 +284,8 @@ if __name__ == "__main__":
     # print(num_c, num_f)
     # sum_class: 126269, sum_func: 1136926
     # Index file saved to index.json
-    build_dataset_files(repo_names, 0, 17)
+    # build_dataset_files(repo_names, 0, 17)
+    # split_the_files_in_data("data", "data_sets" )
+
+    #tokenize the train/val/test_set and save the results
+    tokenize_data_sets()
