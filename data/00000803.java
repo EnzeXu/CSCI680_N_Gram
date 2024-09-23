@@ -1,1 +1,1 @@
-public class ArcFourException extends InvalidDBException { private static final long serialVersionUID = 2103983626687861237L ; }
+public class ArcFourException extends InvalidDBException { private static final long serialVersionUID = 2103983626687861237L; }

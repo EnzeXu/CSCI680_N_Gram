@@ -1,1 +1,1 @@
-public class InvalidKeyFileException extends InvalidDBException { private static final long serialVersionUID = 5540694419562294464L ; public InvalidKeyFileException ( ) { super ( ) ; } }
+public class InvalidKeyFileException extends InvalidDBException { private static final long serialVersionUID = 5540694419562294464L; public InvalidKeyFileException() { super(); } }

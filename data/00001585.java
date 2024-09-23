@@ -1,1 +1,1 @@
-public class TapBalanceNonSafeSplitTransformer extends RuleInsertionTransformer { public TapBalanceNonSafeSplitTransformer ( ) { super ( BalanceAssembly , new BalanceNonSafeSplitExpression ( ) , IntermediateTapElementFactory . TEMP_TAP ) ; } }
+public class OnlyPipeExpressionGraph extends ExpressionGraph { public OnlyPipeExpressionGraph() { super( new FlowElementExpression( ElementCapture.Primary, true, Pipe.class ) ); } }

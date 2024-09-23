@@ -1,1 +1,1 @@
-public class TopDownSplitBoundariesExpressionGraph extends ExpressionGraph { public TopDownSplitBoundariesExpressionGraph ( ) { super ( SearchOrder . Topological ) ; this . arc ( new BoundariesElementExpression ( ElementCapture . Primary , TypeExpression . Topo . Split ) , PathScopeExpression . ANY , new BoundariesElementExpression ( ) ) ; } }
+public class Zorch { public void zorch1() { zorch2(0); } private int zorch2(int x) { return 0; } }

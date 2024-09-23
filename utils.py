@@ -94,8 +94,8 @@ def process_java_file(java_file, destination_path):
 
     # symbols = [",", ".", "}", "{", ";", "(", ")", "[", "]", "+", "-", "*", "/", "<", ">", "=", "@", "#", "~", "&"]
     symbols = [".", ",", ";", "@", "#", ":", "(", ")", "[", "]", "{", "}", ">", "<"]
-    for symbol in symbols:
-        content = content.replace(symbol, f' {symbol} ')
+    # for symbol in symbols:
+    #     content = content.replace(symbol, f' {symbol} ')
 
     content = re.sub(r'\s+', ' ', content).strip()
 

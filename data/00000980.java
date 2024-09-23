@@ -1,1 +1,1 @@
-public class NoSpliceTapExpressionGraph extends ExpressionGraph { public NoSpliceTapExpressionGraph ( ) { super ( SearchOrder . ReverseDepth , not ( or ( ElementCapture . Primary , new FlowElementExpression ( Extent . class ) , new FlowElementExpression ( Splice . class ) , new FlowElementExpression ( Boundary . class ) , new FlowElementExpression ( Tap . class ) ) ) ) ; } }
+public class Blort { public int test1() throws RuntimeException { throw new RuntimeException(); } public int test2() throws Throwable, IllegalArgumentException { throw new IllegalArgumentException(); } }

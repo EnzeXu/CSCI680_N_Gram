@@ -1,1 +1,1 @@
-public class BufferJoin extends BaseJoiner { public BufferJoin ( ) { super ( Fields . NONE ) ; } @ Override public Iterator < Tuple > getIterator ( JoinerClosure closure ) { return null ; } @ Override public int numJoins ( ) { return -1 ; } }
+public class BoundaryBalanceJoinSplitTransformer extends RuleInsertionTransformer { public BoundaryBalanceJoinSplitTransformer() { super( BalanceAssembly, new BalanceJoinSplitExpression(), BoundaryElementFactory.BOUNDARY_PIPE ); } }

@@ -1,0 +1,1 @@
+public class TupleSerializer extends BaseSerializer<Tuple> { public TupleSerializer( TupleSerialization.SerializationElementWriter elementWriter ) { super( elementWriter ); } public void serialize( Tuple tuple ) throws IOException { outputStream.writeTuple( tuple ); } }

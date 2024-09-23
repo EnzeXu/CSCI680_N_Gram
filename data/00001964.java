@@ -1,0 +1,1 @@
+public class KeyTupleSerializer extends BaseSerializer<KeyTuple> { public KeyTupleSerializer( TupleSerialization.SerializationElementWriter elementWriter ) { super( elementWriter ); setWriters( elementWriter.getTupleSerialization().getKeyFields() ); } }

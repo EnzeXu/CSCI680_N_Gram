@@ -1,1 +1,1 @@
-public class A { public int a = 3 ; }
+public class A { public int a = 3; }

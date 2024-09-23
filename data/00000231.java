@@ -1,1 +1,1 @@
-public class PrepTable extends Program implements Table { public PrepTable ( DirectoryEntry de , RandomAccessFileEmulator raf ) throws IOException { raf . seek ( de . getOffset ( ) ) ; readInstructions ( raf , de . getLength ( ) ) ; } public int getType ( ) { return prep ; } }
+public class PrepTable extends Program implements Table { public PrepTable(DirectoryEntry de,RandomAccessFileEmulator raf) throws IOException { raf.seek(de.getOffset()); readInstructions(raf, de.getLength()); } public int getType() { return prep; } }

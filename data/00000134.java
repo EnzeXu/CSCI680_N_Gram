@@ -1,1 +1,1 @@
-public class LinkedOperationQueueFactory implements OperationQueueFactory { public BlockingQueue < Operation > create ( ) { return new LinkedBlockingQueue < Operation > ( ) ; } }
+public class LinkedOperationQueueFactory implements OperationQueueFactory { public BlockingQueue<Operation> create() { return new LinkedBlockingQueue<Operation>(); } }

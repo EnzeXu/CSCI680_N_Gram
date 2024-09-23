@@ -1,1 +1,1 @@
-public class WasRun extends TestCase { public boolean fWasRun = false ; @ Override protected void runTest ( ) { fWasRun = true ; } }
+public class WasRun extends TestCase { public boolean fWasRun = false; @Override protected void runTest() { fWasRun = true; } }
