@@ -1,0 +1,1 @@
+public class Discard extends SubAssembly { @ ConstructorProperties ( { "previous" , "discardFields" } ) public Discard ( Pipe previous , Fields discardFields ) { super ( previous ) ; if ( discardFields == null ) throw new IllegalArgumentException ( "discardFields may not be null" ) ; setTails ( new Each ( previous , discardFields , new NoOp ( ) , Fields . SWAP ) ) ; } }

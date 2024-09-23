@@ -1,0 +1,1 @@
+public class MissingGroupAssert extends RuleAssert { public MissingGroupAssert ( ) { super ( PreBalanceAssembly , new MissingGroupExpression ( ) , "Every may only be preceded by another Every or a Group pipe , found : { Secondary } " ) ; } }

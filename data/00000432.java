@@ -1,0 +1,1 @@
+public class OldTests { public static Test suite ( ) { return junit . tests . AllTests . suite ( ) ; } }

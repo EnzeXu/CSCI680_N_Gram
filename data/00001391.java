@@ -1,0 +1,1 @@
+public class OnlyPipeExpressionGraph extends ExpressionGraph { public OnlyPipeExpressionGraph ( ) { super ( new FlowElementExpression ( ElementCapture . Primary , true , Pipe . class ) ) ; } }

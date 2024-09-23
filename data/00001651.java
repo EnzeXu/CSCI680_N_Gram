@@ -1,0 +1,1 @@
+public class AdjacentTempToTapExpression extends RuleExpression { public AdjacentTempToTapExpression ( ) { super ( new ExpressionGraph ( ) . arc ( new FlowElementExpression ( ElementCapture . Primary , TempHfs . class ) , new EquivalentTapsScopeExpression ( ) , new FlowElementExpression ( ElementCapture . Secondary , Hfs . class ) ) ) ; } }

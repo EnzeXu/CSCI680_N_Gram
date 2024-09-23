@@ -1,0 +1,1 @@
+public class TapBalanceGroupMergeGroupTransformer extends RuleInsertionTransformer { public TapBalanceGroupMergeGroupTransformer ( ) { super ( BalanceAssembly , new BalanceGroupMergeGroupExpression ( ) , IntermediateTapElementFactory . TEMP_TAP ) ; } }

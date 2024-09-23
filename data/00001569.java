@@ -1,0 +1,1 @@
+public class TapBalanceNonSafePipeSplitTransformer extends RuleInsertionTransformer { public TapBalanceNonSafePipeSplitTransformer ( ) { super ( BalanceAssembly , new BalanceNonSafePipeSplitExpression ( ) , IntermediateTapElementFactory . TEMP_TAP ) ; } }

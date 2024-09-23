@@ -1,0 +1,1 @@
+public class OrderedHashMapCacheFactory extends BaseCacheFactory { @ Override public CascadingCache create ( FlowProcess flowProcess ) { return new OrderedHashMapCache ( ) ; } }

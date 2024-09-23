@@ -1,0 +1,1 @@
+public class BoundaryBalanceGroupSplitSpliceTransformer extends RuleInsertionTransformer { public BoundaryBalanceGroupSplitSpliceTransformer ( ) { super ( BalanceAssembly , new BalanceGroupSplitSpliceExpression ( ) , BoundaryElementFactory . BOUNDARY_PIPE ) ; } }

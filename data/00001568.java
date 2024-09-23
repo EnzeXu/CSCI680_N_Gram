@@ -1,0 +1,1 @@
+public class ConsecutiveTapsStepPartitioner extends ExpressionRulePartitioner { public ConsecutiveTapsStepPartitioner ( ) { super ( PartitionSteps , new ConsecutiveTapsPartitionExpression ( ) ) ; } }

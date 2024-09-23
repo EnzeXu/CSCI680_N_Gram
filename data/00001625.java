@@ -1,0 +1,1 @@
+public class GroupingSortingPartitioner extends HasherPartitioner implements Partitioner < TuplePair , Tuple > { public int getPartition ( TuplePair key , Tuple value , int numReduceTasks ) { return ( hashCode ( key . getLhs ( ) ) & Integer . MAX_VALUE ) % numReduceTasks ; } @ Override public void configure ( JobConf job ) { setConf ( job ) ; } }

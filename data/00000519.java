@@ -1,0 +1,1 @@
+public class TestCouldNotBeSkippedException extends RuntimeException { private static final long serialVersionUID = 1L ; public TestCouldNotBeSkippedException ( org . junit . internal . AssumptionViolatedException cause ) { super ( "Test could not be skipped due to other failures" , cause ) ; } }

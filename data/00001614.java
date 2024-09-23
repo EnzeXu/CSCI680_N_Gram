@@ -1,0 +1,1 @@
+public class DualStreamedAccumulatedExpression extends RuleExpression { public DualStreamedAccumulatedExpression ( ) { super ( new NoMergeTapExpressionGraph ( ) , new DualStreamedAccumulatedExpressionGraph ( ) ) ; } }

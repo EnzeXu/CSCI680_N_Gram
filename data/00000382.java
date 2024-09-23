@@ -1,0 +1,1 @@
+public class StubbedTheoriesTest { @ Theory public void ask ( @ Stub Correspondent correspondent ) { assumeThat ( correspondent . getAnswer ( "What is five?" , "four" , "five" ) , is ( "five" ) ) ; } }

@@ -1,0 +1,1 @@
+public class LocalHfsAdaptor extends FileAdaptorTap < Properties , InputStream , OutputStream , Configuration , RecordReader , OutputCollector > { @ ConstructorProperties ( "original" ) public LocalHfsAdaptor ( Tap < Configuration , RecordReader , OutputCollector > original ) { super ( original , LocalHadoopFlowProcess : : new , HadoopUtil : : createJobConf ) ; } }

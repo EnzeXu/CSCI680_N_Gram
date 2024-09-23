@@ -1,0 +1,1 @@
+public class LoneGroupAssert extends RuleAssert { public LoneGroupAssert ( ) { super ( PreBalanceAssembly , new LoneGroupExpression ( ) , "group assertions must be accompanied by aggregator operations" ) ; } }

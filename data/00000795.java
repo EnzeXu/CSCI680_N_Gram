@@ -1,0 +1,1 @@
+public class FileUriException extends Exception { public FileUriException ( String string ) { super ( string ) ; } public FileUriException ( String string , Exception e ) { super ( string , e ) ; } public FileUriException ( Exception e ) { super ( e ) ; } }

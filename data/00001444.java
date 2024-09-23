@@ -1,0 +1,1 @@
+public class ProcessGraphs { public static List < ProcessModel > predecessorListOf ( ProcessGraph < ? extends ProcessModel > processGraph , ProcessModel processModel ) { return Graphs . < ProcessModel , ProcessEdge > predecessorListOf ( ( ( BaseProcessGraph ) processGraph ) . graph , processModel ) ; } }

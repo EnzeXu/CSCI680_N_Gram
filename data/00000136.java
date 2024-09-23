@@ -1,0 +1,1 @@
+public class ArrayOperationQueueFactory implements OperationQueueFactory { private final int capacity ; public ArrayOperationQueueFactory ( int cap ) { super ( ) ; capacity = cap ; } public BlockingQueue < Operation > create ( ) { return new ArrayBlockingQueue < Operation > ( capacity ) ; } }

@@ -1,0 +1,1 @@
+public class NoOpPipeExpression extends RuleExpression { public NoOpPipeExpression ( ) { super ( new NoOpPipeExpressionGraph ( ) ) ; } }

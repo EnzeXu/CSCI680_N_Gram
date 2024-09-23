@@ -1,0 +1,1 @@
+public class TuplePartitioner extends HasherPartitioner implements org . apache . tez . runtime . library . api . Partitioner { public TuplePartitioner ( Configuration configuration ) { setConf ( configuration ) ; } public int getPartition ( Object key , Object value , int numReduceTasks ) { return ( hashCode ( ( Tuple ) key ) & Integer . MAX_VALUE ) % numReduceTasks ; } }

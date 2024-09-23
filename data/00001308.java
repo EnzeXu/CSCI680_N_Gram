@@ -1,0 +1,1 @@
+public class FlowProcessContext { String sourcePath ; public String getSourcePath ( ) { return FlowProcess . this . getStringProperty ( FileType . CASCADING_SOURCE_PATH , sourcePath ) ; } public void setSourcePath ( String sourcePath ) { this . sourcePath = sourcePath ; } }

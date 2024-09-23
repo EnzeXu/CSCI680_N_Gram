@@ -1,0 +1,1 @@
+public class PlannerLevelExpression extends RuleExpression { public PlannerLevelExpression ( Class < ? extends PlannerLevel > plannerLevelClass ) { super ( new PlannerLevelPipeExpressionGraph ( plannerLevelClass ) ) ; } }

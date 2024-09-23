@@ -1,0 +1,1 @@
+public class UIToastTask implements Runnable { private String mText ; private Context mCtx ; public UIToastTask ( Context ctx , int resId ) { mCtx = ctx ; mText = ctx . getString ( resId ) ; } public UIToastTask ( Context ctx , String text ) { mCtx = ctx ; mText = text ; } public void run ( ) { Toast . makeText ( mCtx , mText , Toast . LENGTH_LONG ) . show ( ) ; } }

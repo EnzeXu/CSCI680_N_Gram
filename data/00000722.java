@@ -1,0 +1,1 @@
+public class CancelDialog extends AppCompatDialog { private boolean mCanceled = false ; public CancelDialog ( Context context ) { super ( context ) ; } public boolean canceled ( ) { return mCanceled ; } @ Override public void cancel ( ) { super . cancel ( ) ; mCanceled = true ; } }

@@ -1,0 +1,1 @@
+public class NonBlockedBlockedJoinAnnotatorExpression extends RuleExpression { public NonBlockedBlockedJoinAnnotatorExpression ( ) { super ( new NoCoGroupJoinTapExpressionGraph ( ) , new NonBlockedBlockedJoinExpressionGraph ( ) ) ; } }

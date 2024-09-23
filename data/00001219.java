@@ -1,0 +1,1 @@
+public class DirectMappedCacheFactory extends BaseCacheFactory { @ Override public CascadingCache create ( FlowProcess flowProcess ) { return new DirectMappedCache ( ) ; } }

@@ -1,0 +1,1 @@
+public class MultiTapGroupNodePartitioner extends ExpressionRulePartitioner { public MultiTapGroupNodePartitioner ( ) { super ( PartitionNodes , new RuleExpression ( new NoGroupTapExpressionGraph ( ) , new MultiTapGroupExpressionGraph ( ) ) ) ; } }

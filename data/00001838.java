@@ -1,0 +1,1 @@
+public class JSONSetTextTransform extends heretical . pointer . operation . json . transform . JSONSetTextTransform { public JSONSetTextTransform ( ) { } public JSONSetTextTransform ( String replace ) { super ( replace ) ; } public JSONSetTextTransform ( String name , String defaultReplace ) { super ( name , defaultReplace ) ; } }

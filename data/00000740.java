@@ -1,0 +1,1 @@
+public class PwDefsV4 { public static final String TITLE_FIELD = "Title" ; public static final String USERNAME_FIELD = "UserName" ; public static final String PASSWORD_FIELD = "Password" ; public static final String URL_FIELD = "URL" ; public static final String NOTES_FIELD = "Notes" ; }

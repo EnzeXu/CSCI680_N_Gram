@@ -1,0 +1,1 @@
+public class AllTests { public static Test suite ( ) { return new JUnit4TestAdapter ( AllTests . class ) ; } }

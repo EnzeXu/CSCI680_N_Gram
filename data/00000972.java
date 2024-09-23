@@ -1,0 +1,1 @@
+public class StreamedOnlySourcesExpressionGraph extends ExpressionGraph { public StreamedOnlySourcesExpressionGraph ( ) { super ( SearchOrder . Depth ) ; this . arc ( new BoundariesElementExpression ( ElementCapture . Primary , TypeExpression . Topo . LinearOut ) , PathScopeExpression . ALL_NON_BLOCKING , new BoundariesElementExpression ( ) ) ; } }

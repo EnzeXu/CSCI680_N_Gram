@@ -1,0 +1,1 @@
+public class StreamedAccumulatedTapsHashJoinPipelinePartitionExpression extends RuleExpression { public StreamedAccumulatedTapsHashJoinPipelinePartitionExpression ( ) { super ( new NoGroupJoinMergeBoundaryTapExpressionGraph ( ) , new StreamedAccumulatedTapsHashJoinExpressionGraph ( ) ) ; } }

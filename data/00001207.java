@@ -1,0 +1,1 @@
+public class NullNotEquivalentComparator implements Comparator < Comparable > , Serializable { @ Override public int compare ( Comparable lhs , Comparable rhs ) { if ( lhs == null ) return -1 ; if ( rhs == null ) return 1 ; return lhs . compareTo ( rhs ) ; } }

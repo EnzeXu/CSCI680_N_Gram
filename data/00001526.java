@@ -1,0 +1,1 @@
+public class NoTokenTestSerialization extends TestSerialization { public NoTokenTestSerialization ( ) { } }

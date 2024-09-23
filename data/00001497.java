@@ -1,0 +1,1 @@
+public class CopySpec extends heretical . pointer . operation . CopySpec < CopySpec > { public CopySpec ( ) { } public CopySpec ( String intoPointer ) { super ( intoPointer ) ; } }

@@ -1,0 +1,1 @@
+public class CascadeException extends CascadingException { public CascadeException ( ) { } public CascadeException ( String string ) { super ( string ) ; } public CascadeException ( String string , Throwable throwable ) { super ( string , throwable ) ; } public CascadeException ( Throwable throwable ) { super ( throwable ) ; } }

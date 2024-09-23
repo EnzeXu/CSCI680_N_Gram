@@ -1,0 +1,1 @@
+public class AllTests extends SuiteMethod { public AllTests ( Class < ? > klass ) throws Throwable { super ( klass ) ; } }

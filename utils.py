@@ -173,4 +173,4 @@ if __name__ == "__main__":
     # print(num_c, num_f)
     # sum_class: 126269, sum_func: 1136926
     # Index file saved to index.json
-    build_dataset_files(repo_names, 0, 500)
+    build_dataset_files(repo_names, 0, 17)

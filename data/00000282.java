@@ -1,0 +1,1 @@
+public class NoTestCases extends TestCase { public void noTestCase ( ) { } }

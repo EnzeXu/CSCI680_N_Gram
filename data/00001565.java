@@ -1,0 +1,1 @@
+public class TapGroupTapStepPartitioner extends ExpressionRulePartitioner { public TapGroupTapStepPartitioner ( ) { super ( PartitionSteps , new TapGroupTapPartitionExpression ( ) ) ; } }

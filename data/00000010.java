@@ -1,0 +1,1 @@
+public class AsciiCancellationTest extends CancellationBaseCase { }

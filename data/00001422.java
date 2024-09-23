@@ -1,0 +1,1 @@
+public class BufferAfterEveryAssert extends RuleAssert { public BufferAfterEveryAssert ( ) { super ( PreBalanceAssembly , new BufferAfterEveryExpression ( ) , "only one Every with a Buffer may follow a GroupBy or CoGroup pipe , no other Every instances are allowed immediately before or after , found : { Primary } before : { Secondary } " ) ; } }

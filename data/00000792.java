@@ -1,0 +1,1 @@
+public class PwDbHeaderOutput { protected byte [ ] hashOfHeader = null ; public byte [ ] getHashOfHeader ( ) { return hashOfHeader ; } }

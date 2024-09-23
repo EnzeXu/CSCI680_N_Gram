@@ -1,0 +1,1 @@
+public class CascadingException extends RuntimeException { public CascadingException ( ) { } public CascadingException ( String string ) { super ( string ) ; } public CascadingException ( String string , Throwable throwable ) { super ( string , throwable ) ; } public CascadingException ( Throwable throwable ) { super ( throwable ) ; } }

@@ -1,0 +1,1 @@
+public class ApplyAssertionLevelTransformer extends RuleContractedTransformer { public ApplyAssertionLevelTransformer ( ) { super ( PreResolveAssembly , new PlannerLevelExpression ( AssertionLevel . class ) ) ; } }

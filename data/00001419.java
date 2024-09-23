@@ -1,0 +1,1 @@
+public class RemoveNoOpPipeTransformer extends RuleContractedTransformer { public RemoveNoOpPipeTransformer ( ) { super ( PreResolveAssembly , new NoOpPipeExpression ( ) ) ; } }

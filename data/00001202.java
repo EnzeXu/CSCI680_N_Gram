@@ -1,0 +1,1 @@
+public class EnumMultiMap < V > extends SetMultiMap < Enum , V > { public EnumMultiMap ( ) { } public EnumMultiMap ( EnumMultiMap map ) { addAll ( map ) ; } @ Override protected Map < Enum , Set < V > > createMap ( ) { return new IdentityHashMap < > ( ) ; } @ Override protected Set < V > createCollection ( ) { return Util . createIdentitySet ( ) ; } }

@@ -1,0 +1,1 @@
+public class KeyIndexTuple extends IndexTuple { public KeyIndexTuple ( ) { } public KeyIndexTuple ( int index , Tuple tuple ) { super ( index , tuple ) ; } }

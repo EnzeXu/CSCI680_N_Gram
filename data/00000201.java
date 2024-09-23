@@ -1,0 +1,1 @@
+public class GposTable implements Table { protected GposTable ( DirectoryEntry de , RandomAccessFileEmulator raf ) throws IOException { raf . seek ( de . getOffset ( ) ) ; raf . readInt ( ) ; raf . readInt ( ) ; raf . readInt ( ) ; raf . readInt ( ) ; } public int getType ( ) { return GPOS ; } public String toString ( ) { return "GPOS" ; } }

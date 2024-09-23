@@ -1,0 +1,1 @@
+public class RemoveMalformedHashJoinNodeTransformer extends RuleRemoveBranchTransformer { public RemoveMalformedHashJoinNodeTransformer ( ) { super ( PostNodes , new RuleExpression ( new MalformedJoinExpressionGraph ( ) ) ) ; } }
