@@ -1,0 +1,1 @@
+public class ViewTest { @Test(expected = IllegalArgumentException.class) public void noIndex() throws Exception { new View(null, new JSONObject("{}")); } @Test public void index() throws Exception { final JSONObject json = new JSONObject(); json.put("index", "function(doc) { return null; }"); new View(null, json); } }

@@ -1,0 +1,25 @@
+Modifier "public" line 1, position 1
+Keyword "class" line 1, position 8
+Identifier "SplitBeforeEveryAssert" line 1, position 14
+Keyword "extends" line 1, position 37
+Identifier "RuleAssert" line 1, position 45
+Separator "{" line 1, position 56
+Modifier "public" line 1, position 58
+Identifier "SplitBeforeEveryAssert" line 1, position 65
+Separator "(" line 1, position 87
+Separator ")" line 1, position 88
+Separator "{" line 1, position 90
+Keyword "super" line 1, position 92
+Separator "(" line 1, position 97
+Identifier "PreBalanceAssembly" line 1, position 99
+Separator "," line 1, position 117
+Keyword "new" line 1, position 119
+Identifier "SplitBeforeEveryExpression" line 1, position 123
+Separator "(" line 1, position 149
+Separator ")" line 1, position 150
+Separator "," line 1, position 151
+String ""Every instances may not split after a GroupBy or CoGroup pipe, found: {Primary} before: {Secondary}"" line 1, position 153
+Separator ")" line 1, position 255
+Separator ";" line 1, position 256
+Separator "}" line 1, position 258
+Separator "}" line 1, position 260

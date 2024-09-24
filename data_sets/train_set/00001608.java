@@ -1,0 +1,1 @@
+public class NoOpPipeMultiGraphTransformer extends RuleInsertionTransformer { public NoOpPipeMultiGraphTransformer() { super( PreResolveAssembly, new NoOpPipeMultiGraphExpression(), IntermediatePipeElementFactory.IDENTITY, InsertionGraphTransformer.Insertion.After ); } }

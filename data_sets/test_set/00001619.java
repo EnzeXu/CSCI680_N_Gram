@@ -1,0 +1,1 @@
+public class SplitBeforeEveryAssert extends RuleAssert { public SplitBeforeEveryAssert() { super( PreBalanceAssembly, new SplitBeforeEveryExpression(), "Every instances may not split after a GroupBy or CoGroup pipe, found: {Primary} before: {Secondary}" ); } }

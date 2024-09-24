@@ -1,0 +1,14 @@
+Modifier "public" line 1, position 1
+Keyword "class" line 1, position 8
+Identifier "NoArgTestCaseTest" line 1, position 14
+Keyword "extends" line 1, position 32
+Identifier "TestCase" line 1, position 40
+Separator "{" line 1, position 49
+Modifier "public" line 1, position 51
+Keyword "void" line 1, position 58
+Identifier "testNothing" line 1, position 63
+Separator "(" line 1, position 74
+Separator ")" line 1, position 75
+Separator "{" line 1, position 77
+Separator "}" line 1, position 79
+Separator "}" line 1, position 81

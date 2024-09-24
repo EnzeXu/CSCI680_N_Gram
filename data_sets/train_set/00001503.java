@@ -1,0 +1,1 @@
+public class FlowSkipIfSinkNotStale implements FlowSkipStrategy { public boolean skipFlow( Flow flow ) throws IOException { long sinkModified = flow.getSinkModified(); return sinkModified > 0 && !flow.areSourcesNewer( sinkModified ); } }

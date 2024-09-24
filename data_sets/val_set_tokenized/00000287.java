@@ -1,0 +1,14 @@
+Modifier "public" line 1, position 1
+Keyword "class" line 1, position 8
+Identifier "InheritedTestCase" line 1, position 14
+Keyword "extends" line 1, position 32
+Identifier "OneTestCase" line 1, position 40
+Separator "{" line 1, position 52
+Modifier "public" line 1, position 54
+Keyword "void" line 1, position 61
+Identifier "test2" line 1, position 66
+Separator "(" line 1, position 71
+Separator ")" line 1, position 72
+Separator "{" line 1, position 74
+Separator "}" line 1, position 76
+Separator "}" line 1, position 78

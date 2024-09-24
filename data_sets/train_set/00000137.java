@@ -1,0 +1,1 @@
+public class CancelledOperationStatus extends OperationStatus { public CancelledOperationStatus() { super(false, "cancelled", StatusCode.CANCELLED); } }

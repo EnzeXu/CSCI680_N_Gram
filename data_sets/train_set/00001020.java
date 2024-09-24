@@ -1,0 +1,1 @@
+public class Blort { static public int hello() { return 10; } static public void ouch() { hello(); hello(); } }

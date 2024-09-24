@@ -1,0 +1,1 @@
+public class RemoveStreamedBranchTransformer extends RuleRemoveBranchTransformer { public RemoveStreamedBranchTransformer() { super( PostPipelines, new DualStreamedAccumulatedExpression() ); } }

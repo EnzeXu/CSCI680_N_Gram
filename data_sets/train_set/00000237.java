@@ -1,0 +1,1 @@
+public class LangSysRecord { private int tag; private int offset; public LangSysRecord(RandomAccessFileEmulator raf) throws IOException { tag = raf.readInt(); offset = raf.readUnsignedShort(); } public int getTag() { return tag; } public int getOffset() { return offset; } }

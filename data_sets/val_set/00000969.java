@@ -1,0 +1,1 @@
+public class InvokeDefault implements DefaultDefinition { public void foo() { DefaultDefinition.super.countIt("123"); } }

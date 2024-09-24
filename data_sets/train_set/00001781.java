@@ -1,0 +1,1 @@
+public class DualStreamedAccumulatedMergePipelineAssert extends RuleAssert { public DualStreamedAccumulatedMergePipelineAssert() { super( PostPipelines, new DualStreamedAccumulatedExpression(), "may not merge accumulated and streamed in same pipeline: {Secondary}" ); } }

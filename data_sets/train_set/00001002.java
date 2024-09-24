@@ -1,0 +1,1 @@
+public class Blort { public static int test(Zorch z, double d) { z.zorch1(); z.zorch2(d); int x = z.zorch3(z); int y = (int) z.zorch4(); return x + y; } }

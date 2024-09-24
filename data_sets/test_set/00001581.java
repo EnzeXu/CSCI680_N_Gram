@@ -1,0 +1,1 @@
+public class GroupTapExpressionGraph extends ExpressionGraph { public GroupTapExpressionGraph() { super( SearchOrder.ReverseTopological ); this .arc( new FlowElementExpression( Group.class ), ScopeExpression.ALL, new FlowElementExpression( ElementCapture.Primary, Tap.class ) ); } }

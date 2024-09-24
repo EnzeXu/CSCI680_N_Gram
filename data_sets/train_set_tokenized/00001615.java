@@ -1,0 +1,25 @@
+Modifier "public" line 1, position 1
+Keyword "class" line 1, position 8
+Identifier "MissingGroupAssert" line 1, position 14
+Keyword "extends" line 1, position 33
+Identifier "RuleAssert" line 1, position 41
+Separator "{" line 1, position 52
+Modifier "public" line 1, position 54
+Identifier "MissingGroupAssert" line 1, position 61
+Separator "(" line 1, position 79
+Separator ")" line 1, position 80
+Separator "{" line 1, position 82
+Keyword "super" line 1, position 84
+Separator "(" line 1, position 89
+Identifier "PreBalanceAssembly" line 1, position 91
+Separator "," line 1, position 109
+Keyword "new" line 1, position 111
+Identifier "MissingGroupExpression" line 1, position 115
+Separator "(" line 1, position 137
+Separator ")" line 1, position 138
+Separator "," line 1, position 139
+String ""Every may only be preceded by another Every or a Group pipe, found: {Secondary}"" line 1, position 141
+Separator ")" line 1, position 223
+Separator ";" line 1, position 224
+Separator "}" line 1, position 226
+Separator "}" line 1, position 228

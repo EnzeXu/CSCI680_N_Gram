@@ -1,0 +1,1 @@
+public class TopDownSplitBoundariesNodePartitioner extends ExpressionRulePartitioner { public TopDownSplitBoundariesNodePartitioner() { super( PartitionNodes, new RuleExpression( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new TopDownSplitBoundariesExpressionGraph() ), new ElementAnnotation( ElementCapture.Include, IORole.sink ) ); } }

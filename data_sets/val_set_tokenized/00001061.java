@@ -1,0 +1,13 @@
+Modifier "public" line 1, position 1
+Keyword "class" line 1, position 8
+Identifier "Version" line 1, position 14
+Separator "{" line 1, position 22
+Modifier "public" line 1, position 24
+Modifier "static" line 1, position 31
+Modifier "final" line 1, position 38
+Identifier "String" line 1, position 44
+Identifier "VERSION" line 1, position 51
+Operator "=" line 1, position 59
+String ""1.16"" line 1, position 61
+Separator ";" line 1, position 67
+Separator "}" line 1, position 69

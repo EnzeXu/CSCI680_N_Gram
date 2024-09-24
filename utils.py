@@ -6,6 +6,8 @@ import subprocess
 import tqdm
 import random
 import javalang
+from javalang.tokenizer import LexerError
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
 from repo_names import *
 
@@ -205,20 +207,20 @@ def split_the_files_in_data(source_dir, target_dir):
         src_path = os.path.join(data_dir, file_name)
         dest_path = os.path.join(train_dir, file_name)
         shutil.copy(src_path, dest_path)
-    print("the file number in train_file is:",len(train_files) )
+    print("the file number in train_file is:",count_files_num_in_folder(train_dir)  )
 
     for file_name in val_files:
         src_path = os.path.join(data_dir, file_name)
         dest_path = os.path.join(val_dir, file_name)
         shutil.copy(src_path, dest_path)
-    print("the file number in validation_file is:",len(val_files) )
+    print("the file number in train_file is:",count_files_num_in_folder(val_dir)  )
 
 
     for file_name in test_files:
         src_path = os.path.join(data_dir, file_name)
         dest_path = os.path.join(test_dir, file_name)
         shutil.copy(src_path, dest_path)
-    print("the file number in test_file is:",len(test_files) )
+    print("the file number in train_file is:",count_files_num_in_folder(test_dir)  )
 
 
     print(f"Files have been split and moved to {output_dir}.")
@@ -229,8 +231,12 @@ def split_the_files_in_data(source_dir, target_dir):
 def tokenize_java_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         code = f.read()
-    tokens = list(javalang.tokenizer.tokenize(code))
-    return tokens
+    try:
+        tokens = list(javalang.tokenizer.tokenize(code))
+        return tokens
+    except LexerError as e:
+        # print(f"LexerError in file {file_path}: {e}")
+        return None
 
 
 # Function to write tokenized output to a new file
@@ -268,12 +274,56 @@ def tokenize_data_sets():
 
                 # Tokenize the Java file
                 tokens = tokenize_java_file(input_file_path)
-                # print( "tokens:", tokens )
-                # Write tokenized content to a new file
-                write_tokenized_output(output_file_path, tokens)
+
+                if tokens:  # If tokenization was successful
+                    # Write tokenized content to a new file
+                    write_tokenized_output(output_file_path, tokens)
+        file_input_count = count_files_num_in_folder(input_dir)
+        file_output_count = count_files_num_in_folder(output_dir)
+
+        print(f"Number of files in the folder '{input_dir}': {file_input_count}")
+        print(f"Number of files in the folder '{output_dir}': {file_output_count}")
 
     print("Tokenization completed for all sets.")
 
+
+# count how many files are there in one folder: eg: folder_path = 'data_sets/test_set_tokenized'
+def count_files_num_in_folder(folder_path):
+    files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
+    return len(files)
+
+def calculate_metrics(ground_truth_lists, predicted_lists):
+    """
+    Calculate Precision, Recall, F1 Score, and Accuracy between the ground truth and predicted tokens.
+    :param ground_truth_lists: A list of ground truth token lists (val_token_lists).
+    :param predicted_lists: A list of predicted token lists.
+    :return: Precision, Recall, F1 Score, and Accuracy.
+    """
+
+    # Flatten the lists to calculate metrics across all tokens
+    ground_truth_flat = [token for sublist in ground_truth_lists for token in sublist]
+    predicted_flat = [token for sublist in predicted_lists for token in sublist]
+
+    # Ensure both lists are of the same length
+    min_length = min(len(ground_truth_flat), len(predicted_flat))
+    ground_truth_flat = ground_truth_flat[:min_length]
+    predicted_flat = predicted_flat[:min_length]
+
+    # Initialize counts
+    tp=0
+
+    # not correct yet
+    for gt, pred in zip(ground_truth_flat, predicted_flat):
+        if gt == pred:
+            tp+=1
+
+    # Calculate Precision, Recall, F1, and Accuracy
+    precision = true_positive / (true_positive + false_positive) if (true_positive + false_positive) > 0 else 0
+    recall = true_positive / (true_positive + false_negative) if (true_positive + false_negative) > 0 else 0
+    f1 = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+    accuracy = (true_positive + true_negative) / len(ground_truth_flat) if len(ground_truth_flat) > 0 else 0
+
+    return precision, recall, f1, accuracy
 
 
 if __name__ == "__main__":
@@ -285,7 +335,16 @@ if __name__ == "__main__":
     # sum_class: 126269, sum_func: 1136926
     # Index file saved to index.json
     # build_dataset_files(repo_names, 0, 17)
-    # split_the_files_in_data("data", "data_sets" )
 
+    #remember, everytime run the split_the_files_in_data(), delete the data_sets, otherwise it will generate many!!!!!!!!
+    # split_the_files_in_data("data", "data_sets" )
     #tokenize the train/val/test_set and save the results
-    tokenize_data_sets()
+    # tokenize_data_sets()
+    groundtruth_list = [ ['public', 'class', 'ErrorCodeTest', 'extends', 'TestCase', '{', 'public', 'void', 'testErrorCodes', '(', ')', 'throws', 'Exception', '{', 'HashMap', '<', 'Byte', ',', 'String', '>', 'errMap', '=', 'new', 'HashMap', '<', 'Byte', ',', 'String', '>', '(', ')', ';', 'OperationFactory', 'opFact', '=', 'new', 'BinaryOperationFactory', '(', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x01', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x02', ')', ',', 'EXISTS', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x03', ')', ',', '2BIG', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x04', ')', ',', 'INVAL', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x05', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x06', ')', ',', 'DELTA', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x07', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x81', ')', ',', 'UNKNOWN', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x82', ')', ',', 'NO', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x83', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x84', ')', ',', 'INTERNAL', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x85', ')', ',', 'BUSY', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x86', ')', ',', 'TEMP', ')', ';', 'int', 'opaque', '=', '0', ';', 'for', '(', 'final', 'Entry', '<', 'Byte', ',', 'String', '>', 'err', ':', 'errMap', '.', 'entrySet', '(', ')', ')', '{', 'byte', '[', ']', 'b', '=', 'new', 'byte', '[', '24', '+', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ']', ';', 'b', '[', '0', ']', '=', '(', 'byte', ')', '0x81', ';', 'b', '[', '7', ']', '=', 'err', '.', 'getKey', '(', ')', ';', 'b', '[', '11', ']', '=', '(', 'byte', ')', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ';', 'b', '[', '15', ']', '=', '(', 'byte', ')', '++', 'opaque', ';', 'System', '.', 'arraycopy', '(', 'err', '.', 'getValue', '(', ')', '.', 'getBytes', '(', ')', ',', '0', ',', 'b', ',', '24', ',', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ')', ';', 'GetOperation', 'op', '=', 'opFact', '.', 'get', '(', 'key', ',', 'new', 'GetOperation', '.', 'Callback', '(', ')', '{', 'public', 'void', 'receivedStatus', '(', 'OperationStatus', 's', ')', '{', 'assert', '!', 's', '.', 'isSuccess', '(', ')', ';', 'assert', 'err', '.', 'getValue', '(', ')', '.', 'equals', '(', 's', '.', 'getMessage', '(', ')', ')', ';', '}', 'public', 'void', 'gotData', '(', 'String', 'k', ',', 'int', 'flags', ',', 'byte', '[', ']', 'data', ')', '{', '}', 'public', 'void', 'complete', '(', ')', '{', '}', '}', ')', ';', 'ByteBuffer', 'bb', '=', 'ByteBuffer', '.', 'wrap', '(', 'b', ')', ';', 'bb', '.', 'flip', '(', ')', ';', 'op', '.', 'readFromBuffer', '(', 'bb', ')', ';', '}', '}', '}'] ]
+    predict_list = [ ['public', 'class', 'ErrorCodeTest', 'extends'] ]
+    precision, recall, f1, accuracy = calculate_metrics(groundtruth_list, predict_list)
+
+    print(f"Precision: {precision}")
+    print(f"Recall: {recall}")
+    print(f"F1 Score: {f1}")
+    print(f"Accuracy: {accuracy}")
