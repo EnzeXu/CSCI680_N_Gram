@@ -1,1 +1,3 @@
 tqdm
+javalang
+scikit-learn
