@@ -3,7 +3,7 @@ from ngram.utils import *
 
 
 def run_demo():
-    train_num_list = [100]
+    train_num_list = [250]
     test_num = 100
     n_range = range(2, 11)
     log_path = "logs.csv"
