@@ -1,1 +1,0 @@
-public class CombineAdjacentTapTransformer extends RuleReplaceTransformer { public CombineAdjacentTapTransformer() { super( PostResolveAssembly, new AdjacentTempToTapExpression() ); } }

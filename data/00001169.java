@@ -1,1 +1,0 @@
-public class TopDownConsecutiveBoundariesExpressionGraph extends ExpressionGraph { public TopDownConsecutiveBoundariesExpressionGraph() { super( SearchOrder.Topological ); this.arc( new BoundariesElementExpression( ElementCapture.Primary ), PathScopeExpression.ANY, new BoundariesElementExpression() ); } }

@@ -1,1 +1,0 @@
-public class BoundaryBalanceJoinSplitTransformer extends RuleInsertionTransformer { public BoundaryBalanceJoinSplitTransformer() { super( BalanceAssembly, new BalanceJoinSplitExpression(), BoundaryElementFactory.BOUNDARY_PIPE ); } }

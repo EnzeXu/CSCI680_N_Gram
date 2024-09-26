@@ -1,1 +1,0 @@
-public class Stage<Incoming, Outgoing> extends Duct<Incoming, Outgoing> { public void receive( Duct previous, int ordinal, Incoming incoming ) { next.receive( this, ordinal, (Outgoing) incoming ); } }

@@ -1,1 +1,0 @@
-public class SyncMergeStage extends MergeStage { public SyncMergeStage( FlowProcess flowProcess, FlowElement flowElement ) { super( flowProcess, flowElement ); } @Override public synchronized void receive( Duct previous, int ordinal, TupleEntry tupleEntry ) { super.receive( previous, ordinal, tupleEntry ); } }

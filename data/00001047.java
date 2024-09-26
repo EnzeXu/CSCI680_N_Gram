@@ -1,1 +1,0 @@
-public class Blort { public static void sink(Object x) { } public static void test() { sink(new boolean[0]); sink(new byte[1]); sink(new char[2]); sink(new short[3]); sink(new int[4]); sink(new long[5]); sink(new float[6]); sink(new double[7]); sink(new Object[0]); } }

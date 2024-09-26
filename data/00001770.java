@@ -1,1 +1,0 @@
-public class TapBalanceGroupSplitJoinTransformer extends RuleInsertionTransformer { public TapBalanceGroupSplitJoinTransformer() { super( BalanceAssembly, new BalanceGroupSplitJoinExpression(), IntermediateTapElementFactory.TEMP_TAP ); } }

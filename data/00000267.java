@@ -1,1 +1,0 @@
-public class Sha1KeyStrategy extends DigestKeyStrategy { protected String digest(String key) { return StringUtils.sha1Hex(key); } }

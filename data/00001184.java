@@ -1,1 +1,0 @@
-public class StreamedAccumulatedBoundariesNodeRePartitioner extends ExpressionRulePartitioner { public StreamedAccumulatedBoundariesNodeRePartitioner() { super( PartitionNodes, PartitionSource.PartitionCurrent, new RuleExpression( new NoGroupMergeBoundaryTapExpressionGraph(), new StreamedAccumulatedBoundariesExpressionGraph() ) ); } }

@@ -1,1 +1,0 @@
-public class ObjectCoerce extends Coercions.Coerce<Object> { public ObjectCoerce( Map<Type, Coercions.Coerce> coercions ) { super( coercions ); } @Override public Class<Object> getCanonicalType() { return Object.class; } @Override public Object coerce( Object value ) { return value; } }

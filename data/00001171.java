@@ -1,1 +1,0 @@
-public class AccumulatedSourceExpressionGraph extends ExpressionGraph { public AccumulatedSourceExpressionGraph() { super( SearchOrder.ReverseDepth ); this.arc( new BoundariesElementExpression( ElementCapture.Secondary ), PathScopeExpression.ALL_BLOCKING, new FlowElementExpression( ElementCapture.Primary, HashJoin.class ) ); } }

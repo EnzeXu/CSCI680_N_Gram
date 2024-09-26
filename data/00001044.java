@@ -1,1 +1,0 @@
-public class Blort { public void test1() { for (;;) ; } public void test2(int x) { while (x > 0) ; } public void test3(int x, int y) { while (x < y) ; } }

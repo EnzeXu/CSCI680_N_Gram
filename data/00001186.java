@@ -1,1 +1,0 @@
-public class SplitJoinBoundariesNodeRePartitioner extends UniquePathRulePartitioner { public SplitJoinBoundariesNodeRePartitioner() { super( PartitionNodes, PartitionCurrent, new RuleExpression( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new TopDownSplitJoinBoundariesExpressionGraph() ), new ElementAnnotation( ElementCapture.Include, IORole.source ) ); } }

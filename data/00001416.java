@@ -1,1 +1,0 @@
-public class StringNameProvider<V> implements VertexNameProvider<V> { public StringNameProvider() { } @Override public String getVertexName( V vertex ) { return vertex.toString(); } }

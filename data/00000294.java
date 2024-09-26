@@ -1,1 +1,0 @@
-public class NoArgTestCaseTest extends TestCase { public void testNothing() { } }

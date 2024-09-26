@@ -1,1 +1,0 @@
-public class EulaActivity extends AppCompatActivity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.act_eula); Version.setVersionText(getApplicationContext(), findViewById(R.id.version)); } }

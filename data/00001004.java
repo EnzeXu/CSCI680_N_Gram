@@ -1,1 +1,0 @@
-public class Blort { static public void consume(String s) { } public void test() { consume("zorch"); } }

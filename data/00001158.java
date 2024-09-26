@@ -1,1 +1,0 @@
-public class TezGroupByClosure extends HadoopGroupByClosure { public TezGroupByClosure( FlowProcess flowProcess, Fields[] groupingFields, Fields[] valueFields ) { super( flowProcess, groupingFields, valueFields ); } @Override protected Iterator<Tuple> getValueIterator( int pos ) { return new TupleChainIterator( values ); } }

@@ -1,1 +1,0 @@
-public class CoGroupingPartitioner extends HasherPartitioner implements Partitioner<IndexTuple, Tuple> { public int getPartition( IndexTuple key, Tuple value, int numReduceTasks ) { return ( hashCode( key.getTuple() ) & Integer.MAX_VALUE ) % numReduceTasks; } @Override public void configure( JobConf job ) { setConf( job ); } }

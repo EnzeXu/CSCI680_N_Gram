@@ -1,1 +1,0 @@
-public class Blort { public static void justReturn1() { } public static void justReturn2() { } }

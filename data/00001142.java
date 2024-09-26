@@ -1,1 +1,0 @@
-public class TupleRecordMaterializer extends RecordMaterializer<Tuple> { private TupleConverter root; public TupleRecordMaterializer( GroupType parquetSchema ) { this.root = new TupleConverter( parquetSchema ); } @Override public Tuple getCurrentRecord() { return root.getCurrentTuple(); } @Override public GroupConverter getRootConverter() { return root; } }

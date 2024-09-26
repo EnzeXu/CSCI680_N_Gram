@@ -1,1 +1,0 @@
-public class BalanceCheckpointWithBoundaryExpression extends RuleExpression { public BalanceCheckpointWithBoundaryExpression() { super( new ExpressionGraph() .arcs( new FlowElementExpression( ElementCapture.Primary, true, Checkpoint.class ), not( new FlowElementExpression( Boundary.class ) ) ) ); } }

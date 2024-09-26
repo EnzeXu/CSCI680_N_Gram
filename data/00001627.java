@@ -1,1 +1,0 @@
-public class EveryAfterBufferExpression extends RuleExpression { public EveryAfterBufferExpression() { super( new OnlyPipeExpressionGraph(), new ExpressionGraph() .arcs( new OperationExpression( ElementCapture.Secondary, Buffer.class ), new FlowElementExpression( ElementCapture.Primary, Every.class ) ) ); } }

@@ -1,1 +1,0 @@
-public class HashJoinBlockingHashJoinAnnotator extends RuleAnnotationTransformer { public HashJoinBlockingHashJoinAnnotator() { super( PlanPhase.PostResolveAssembly, new NonBlockedBlockedJoinJoinAnnotatorExpression(), new ElementAnnotation( ElementCapture.Secondary, BlockingMode.Blocked ) ); } }

@@ -1,1 +1,0 @@
-public class NoOp extends BaseOperation implements Function { public NoOp() { super( ANY, Fields.NONE ); } @Override public void operate( FlowProcess flowProcess, FunctionCall functionCall ) { functionCall.getOutputCollector().add( Tuple.NULL ); } }

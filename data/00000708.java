@@ -1,1 +1,0 @@
-public class EmptyIterator extends AbstractEmptyIterator implements ResettableIterator { public static final ResettableIterator RESETTABLE_INSTANCE = new EmptyIterator(); public static final Iterator INSTANCE = RESETTABLE_INSTANCE; protected EmptyIterator() { super(); } }

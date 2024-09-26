@@ -1,1 +1,0 @@
-public class AccumulatedTapOnHashJoinExpression extends RuleExpression { public AccumulatedTapOnHashJoinExpression() { super( new SyncPipeExpressionGraph(), new ExpressionGraph() .arc( new FlowElementExpression( ElementCapture.Primary, Hfs.class ), PathScopeExpression.BLOCKING, new FlowElementExpression( HashJoin.class ) ) ); } }

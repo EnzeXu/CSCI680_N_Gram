@@ -1,1 +1,0 @@
-public class AssertionException extends OperationException { public AssertionException() { } public AssertionException( String string ) { super( string ); } public AssertionException( String string, Throwable throwable ) { super( string, throwable ); } public AssertionException( Throwable throwable ) { super( throwable ); } }

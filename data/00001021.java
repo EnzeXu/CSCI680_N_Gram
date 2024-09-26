@@ -1,1 +1,0 @@
-public class Blort { public static Runnable theRunnable = new Runnable() { public void run() { } }; public Runnable create() { return new Runnable() { public void run() { } }; } }

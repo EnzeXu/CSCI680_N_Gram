@@ -1,1 +1,0 @@
-public class DuctException extends RuntimeException { public DuctException( Throwable throwable ) { super( throwable ); } public DuctException( String message, Throwable throwable ) { super( message, throwable ); } }

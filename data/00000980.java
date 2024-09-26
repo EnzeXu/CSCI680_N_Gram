@@ -1,1 +1,0 @@
-public class Blort { public int test1() throws RuntimeException { throw new RuntimeException(); } public int test2() throws Throwable, IllegalArgumentException { throw new IllegalArgumentException(); } }

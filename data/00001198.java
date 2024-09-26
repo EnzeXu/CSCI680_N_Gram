@@ -1,1 +1,0 @@
-public class BoundaryBalanceCheckpointTransformer extends RuleInsertionTransformer { public BoundaryBalanceCheckpointTransformer() { super( BalanceAssembly, new BalanceCheckpointWithBoundaryExpression(), BoundaryElementFactory.BOUNDARY_PIPE ); } }

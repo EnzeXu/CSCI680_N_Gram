@@ -1,1 +1,0 @@
-public class RefreshTask extends OnFinish { public RefreshTask(Handler handler) { super(handler); } @Override public void run() { if ( mSuccess) { refreshIfDirty(); } else { displayMessage(GroupBaseActivity.this); } } }

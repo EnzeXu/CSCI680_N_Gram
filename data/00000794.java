@@ -1,1 +1,0 @@
-public class InvalidDBSignatureException extends InvalidDBException { private static final long serialVersionUID = -5358923878743513758L; public InvalidDBSignatureException() { super(); } }

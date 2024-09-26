@@ -1,1 +1,0 @@
-public class CharacterObjectCoerce extends Coercions.Coerce<Character> { public CharacterObjectCoerce( Map<Type, Coercions.Coerce> coercions ) { super( coercions ); } @Override public Class<Character> getCanonicalType() { return Character.class; } @Override public Character coerce( Object value ) { if( value == null ) return null; return value.toString().charAt( 0 ); } }

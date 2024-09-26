@@ -1,1 +1,0 @@
-public class NoGroupMergeTapExpressionGraph extends ExpressionGraph { public NoGroupMergeTapExpressionGraph() { super( not( OrElementExpression.or( ElementCapture.Primary, new FlowElementExpression( Extent.class ), new FlowElementExpression( Group.class ), new FlowElementExpression( Merge.class ), new FlowElementExpression( Tap.class ) ) ) ); } }

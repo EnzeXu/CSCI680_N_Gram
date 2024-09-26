@@ -1,1 +1,0 @@
-public class LogicalMergeAnnotator extends RuleAnnotationTransformer { public LogicalMergeAnnotator() { super( PlanPhase.PreResolveAssembly, new LogicalMergeAnnotatorExpression(), new ElementAnnotation( ElementCapture.Secondary, RoleMode.Logical ) ); } }

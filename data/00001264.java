@@ -1,1 +1,0 @@
-public class NonFunction extends BaseOperation implements Function { public NonFunction( Fields fieldDeclaration ) { super( fieldDeclaration ); } @Override public void operate( FlowProcess flowProcess, FunctionCall functionCall ) { } }

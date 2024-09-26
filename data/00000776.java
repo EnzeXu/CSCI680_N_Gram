@@ -1,1 +1,0 @@
-public class FileOnFinish extends OnFinish { private Uri mFilename = null; protected FileOnFinish mOnFinish; public FileOnFinish(FileOnFinish finish) { super(finish); mOnFinish = finish; } public void setFilename(Uri filename) { mFilename = filename; } public Uri getFilename() { return mFilename; } }

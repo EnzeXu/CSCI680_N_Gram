@@ -1,1 +1,0 @@
-public class Grouping<Group, ItemIterator extends Iterator> { public JoinerClosure joinerClosure; public Group key; public ItemIterator joinIterator; }

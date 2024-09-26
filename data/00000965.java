@@ -1,1 +1,0 @@
-public class Main{ public static void main(String[] args) throws Throwable { MethodHandle generatedMain = MethodHandles.lookup() .findStatic(ConstTest.class, "main", MethodType.methodType(void.class, String[].class)); generatedMain.invokeExact(args); } }

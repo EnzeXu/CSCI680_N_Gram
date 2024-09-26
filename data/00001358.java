@@ -1,1 +1,0 @@
-public class Boundary extends Pipe { public Boundary() { } @Override public String getName() { return Pipe.id( this ); } @Override public Fields resolveIncomingOperationPassThroughFields( Scope incomingScope ) { return incomingScope.getIncomingFunctionPassThroughFields(); } }

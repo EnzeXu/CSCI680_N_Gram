@@ -1,1 +1,0 @@
-public class ConsecutiveGroupOrMergesNodePartitioner extends ExpressionRulePartitioner { public ConsecutiveGroupOrMergesNodePartitioner() { super( PartitionNodes, new RuleExpression( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new ConsecutiveGroupOrMergeExpressionGraph() ) ); } }

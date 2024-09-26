@@ -1,1 +1,0 @@
-public class StreamedSelfJoinSourcesPipelinePartitionExpression extends RuleExpression { public StreamedSelfJoinSourcesPipelinePartitionExpression() { super( new NoGroupJoinTapExpressionGraph(), new StreamedSelfJoinSourcesExpressionGraph() ); } }

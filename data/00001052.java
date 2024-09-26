@@ -1,1 +1,0 @@
-public class Blort { public static Object test1() { return null; } public static void test2(Object x) { x = null; } }

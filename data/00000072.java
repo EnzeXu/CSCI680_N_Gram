@@ -1,1 +1,0 @@
-public class CacheMap extends BaseCacheMap<Object> { public CacheMap(MemcachedClientIF c, int expiration, String prefix) { super(c, expiration, prefix, c.getTranscoder()); } public CacheMap(MemcachedClientIF c, String prefix) { this(c, 0, prefix); } }

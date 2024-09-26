@@ -1,1 +1,0 @@
-public class TapBalanceGroupNonBlockingHashJoinTransformer extends RuleInsertionTransformer { public TapBalanceGroupNonBlockingHashJoinTransformer() { super( BalanceAssembly, new BalanceGroupNonBlockingHashJoinExpression(), IntermediateTapElementFactory.TEMP_TAP ); } }

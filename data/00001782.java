@@ -1,1 +1,0 @@
-public class GroupTapPartitionExpression extends RuleExpression { public GroupTapPartitionExpression() { super( new NoGroupTapExpressionGraph(), new GroupTapExpressionGraph() ); } }

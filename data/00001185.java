@@ -1,1 +1,0 @@
-public class BottomUpJoinedBoundariesTriangleNodePartitioner extends ExpressionRulePartitioner { public BottomUpJoinedBoundariesTriangleNodePartitioner() { super( PartitionNodes, new RuleExpression( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new BottomUpConsecutiveBoundariesTriangleExpressionGraph() ), new ElementAnnotation( ElementCapture.Primary, IORole.sink ) ); } }

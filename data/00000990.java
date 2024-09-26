@@ -1,1 +1,0 @@
-public class Blort { public static boolean zorch() { return true; } public static void test1() { for (;;) { } } public static void test2() { while (zorch()) { } } public static void test3() { while (zorch()) { zorch(); } } public static void test4() { for (;;) { if (zorch()) { break; } while (zorch()) { zorch(); } } } }

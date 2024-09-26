@@ -1,1 +1,0 @@
-public class InvokeStatic { public static void main(String[] args) { StaticDefinition.printIt(args[0]); } }

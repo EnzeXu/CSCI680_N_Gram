@@ -1,1 +1,0 @@
-public class RunnerBuilderStub extends RunnerBuilder { @Override public Runner runnerForClass(Class<?> testClass) throws Throwable { return new RunnerSpy(testClass, this); } }

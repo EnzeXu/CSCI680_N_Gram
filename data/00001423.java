@@ -1,1 +1,0 @@
-public class TupleException extends CascadingException { public TupleException() { } public TupleException( String string ) { super( string ); } public TupleException( String string, Throwable throwable ) { super( string, throwable ); } public TupleException( Throwable throwable ) { super( throwable ); } }

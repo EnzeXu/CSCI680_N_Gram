@@ -1,1 +1,0 @@
-public class ConstTest { private static void displayMethodHandle(MethodHandle mh) throws Throwable { System.out.println("MethodHandle " + mh + " => " + (Class) mh.invoke((Object) Float.valueOf(1.23e4f))); } private static void displayMethodType(MethodType mt) { System.out.println("MethodType " + mt); } }

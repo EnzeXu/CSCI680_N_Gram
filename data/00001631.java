@@ -1,1 +1,0 @@
-public class LogicalMergeAnnotatorExpression extends RuleExpression { public LogicalMergeAnnotatorExpression() { super( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new LogicalMergeExpressionGraph() ); } }

@@ -1,1 +1,0 @@
-public class Blort { public int test() { Object z = ""; Number t = new Integer(3); if (z instanceof Integer) { return 3; } return ((Integer) t); } }

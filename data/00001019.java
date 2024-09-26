@@ -1,1 +1,0 @@
-public class Blort { public int test1(int x) { switch (x) { default: return 1; } } public int test2(int x) { switch (x) { default: x = 1; } return x; } }

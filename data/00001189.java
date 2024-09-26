@@ -1,1 +1,0 @@
-public class BottomUpBoundariesNodePartitioner extends ExpressionRulePartitioner { public BottomUpBoundariesNodePartitioner() { super( PartitionNodes, new RuleExpression( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new BottomUpNoSplitConsecutiveBoundariesExpressionGraph() ), new ElementAnnotation( ElementCapture.Primary, IORole.sink ) ); } }

@@ -1,1 +1,0 @@
-public class StopDataNotificationException extends CascadingException { public StopDataNotificationException() { } public StopDataNotificationException( String string ) { super( string ); } }

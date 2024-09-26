@@ -1,1 +1,0 @@
-public class KeyTupleDeserializer extends BaseDeserializer<KeyTuple> { public KeyTupleDeserializer( TupleSerialization.SerializationElementReader elementReader ) { super( elementReader ); setReaders( elementReader.getTupleSerialization().getKeyFields() ); } @Override protected KeyTuple createTuple() { return new KeyTuple(); } }

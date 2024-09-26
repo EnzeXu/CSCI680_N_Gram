@@ -1,1 +1,0 @@
-public class BoundaryBalanceSplitToStreamedHashJoinTransformer extends RuleInsertionTransformer { public BoundaryBalanceSplitToStreamedHashJoinTransformer() { super( BalanceAssembly, new BalanceSplitToStreamedHashJoinExpression(), ElementCapture.Secondary, BoundaryElementFactory.BOUNDARY_PIPE ); } }

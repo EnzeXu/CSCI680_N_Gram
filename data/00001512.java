@@ -1,1 +1,0 @@
-public class IdentityElementFactgory extends IntermediatePipeElementFactory { @Override public FlowElement create( ElementGraph graph, FlowElement flowElement ) { return new Each( (Pipe) flowElement, Fields.ALL, new Identity( Fields.ALL ), Fields.RESULTS ); } }

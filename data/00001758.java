@@ -1,1 +1,0 @@
-public class StreamedOnlySourcesPipelinePartitioner extends ExpressionRulePartitioner { public StreamedOnlySourcesPipelinePartitioner() { setPhase( PartitionPipelines ) .setRuleExpression( new StreamedOnlySourcesPipelinePartitionExpression() ) .addAnnotation( new ElementAnnotation( ElementCapture.Primary, StreamMode.Streamed ) ) .addAnnotationExclude( StreamMode.Streamed ); } }

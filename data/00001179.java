@@ -1,1 +1,0 @@
-public class GroupMergeToTapBoundaryExpressionGraph extends ExpressionGraph { public GroupMergeToTapBoundaryExpressionGraph() { super( SearchOrder.ReverseTopological ); this .arc( new GroupOrMergeElementExpression( ElementCapture.Primary ), ScopeExpression.ALL, new TapOrBoundaryElementExpression() ); } }

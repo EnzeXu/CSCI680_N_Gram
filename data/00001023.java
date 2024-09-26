@@ -1,1 +1,0 @@
-public class Blort { public static long test1(int w, long x, int y, long z) { return w + x + y + z; } public static long test2(long w, int x, long y, int z) { return w + x + y + z; } }

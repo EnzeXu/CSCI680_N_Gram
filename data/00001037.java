@@ -1,1 +1,0 @@
-public class NullConstant extends Throwable { public final void m() { NullConstant t = this; NullConstant f; f = t = null; long lout = 0L; } }

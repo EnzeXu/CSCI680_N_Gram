@@ -1,1 +1,0 @@
-public class Blort { public synchronized void test() { new Object(); } }
