@@ -1,1 +1,0 @@
-public class NoTestCaseClass extends Object { public void testSuccess() { } }

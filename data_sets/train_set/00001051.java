@@ -1,1 +1,0 @@
-public class Blort { public static void test(long[] arr) { long x = 0; for (;;) { x += arr[0]; } } }

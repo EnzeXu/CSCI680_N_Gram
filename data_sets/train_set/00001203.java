@@ -1,1 +1,0 @@
-public class AccumulatedPostNodeAnnotator extends RuleAnnotationTransformer { public AccumulatedPostNodeAnnotator() { super( PlanPhase.PostNodes, new RuleExpression( new NoGroupJoinMergeBoundaryTapExpressionGraph(), new AccumulatedSourceExpressionGraph() ), new ElementAnnotation( ElementCapture.Secondary, StreamMode.Accumulated ) ); } }

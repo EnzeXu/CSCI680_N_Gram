@@ -1,1 +1,0 @@
-public class TopDownSplitJoinBoundariesExpressionGraph extends ExpressionGraph { public TopDownSplitJoinBoundariesExpressionGraph() { super( SearchOrder.Topological ); this.arc( new BoundariesElementExpression( Topo.Split ), PathScopeExpression.ANY, and( ElementCapture.Primary, new BoundariesElementExpression( Topo.Splice ), not( new FlowElementExpression( Tap.class ) ) ) ); } }

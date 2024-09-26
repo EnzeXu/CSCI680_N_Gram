@@ -1,1 +1,0 @@
-public class ReplaceAccumulateTapWithDistCacheTransformer extends RuleReplaceFactoryBasedTransformer { public ReplaceAccumulateTapWithDistCacheTransformer() { super( BalanceAssembly, new AccumulatedTapOnHashJoinExpression(), IntermediateTapElementFactory.ACCUMULATED_TAP ); } }

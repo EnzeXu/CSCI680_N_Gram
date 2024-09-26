@@ -1,1 +1,0 @@
-public class Context { Node rootNode = null; public void reset() { rootNode = getRootNode(); } }

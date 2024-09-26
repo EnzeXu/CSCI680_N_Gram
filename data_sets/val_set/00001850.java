@@ -1,1 +1,0 @@
-public class HadoopSinkStage extends SinkStage { HadoopFlowProcess hadoopFlowProcess; public HadoopSinkStage( FlowProcess flowProcess, Tap sink ) { super( flowProcess, sink ); hadoopFlowProcess = (HadoopFlowProcess) FlowProcessWrapper.undelegate( flowProcess ); } @Override protected Object getOutput() { return hadoopFlowProcess.getOutputCollector(); } }

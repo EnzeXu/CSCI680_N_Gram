@@ -1,1 +1,0 @@
-public class LoneGroupExpression extends RuleExpression { public LoneGroupExpression() { super( new ExpressionGraph() .arcs( new FlowElementExpression( Group.class ), new OperationExpression( ElementCapture.Primary, GroupAssertion.class ), not( new FlowElementExpression( Every.class ) ) ) ); } }

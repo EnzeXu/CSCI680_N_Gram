@@ -1,1 +1,0 @@
-public class NoHashJoinAssert extends RuleAssert { public NoHashJoinAssert() { super( PreBalanceAssembly, new RuleExpression( new ExpressionGraph() .arcs( new FlowElementExpression( ElementCapture.Primary, HashJoin.class ) ) ), "HashJoins not supported by this rule registry, found {Primary}", AssertionType.Unsupported ); } }

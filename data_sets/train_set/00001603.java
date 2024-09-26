@@ -1,1 +1,0 @@
-public class WholeGraphNodePartitioner extends WholeGraphRulePartitioner { public WholeGraphNodePartitioner() { super( PartitionNodes ); } }

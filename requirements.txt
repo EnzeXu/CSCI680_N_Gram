@@ -1,3 +1,5 @@
 tqdm
 javalang
-scikit-learn
+numpy
+matplotlib
+seaborn

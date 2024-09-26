@@ -1,1 +1,0 @@
-public class TapBalanceSameSourceStreamedAccumulatedTransformer extends RuleInsertionTransformer { public TapBalanceSameSourceStreamedAccumulatedTransformer() { super( BalanceAssembly, new BalanceSameSourceStreamedAccumulatedExpression(), IntermediateTapElementFactory.TEMP_TAP ); } }

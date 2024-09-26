@@ -5,7 +5,12 @@ venv/*
 
 
 data_backup/*
+data_token/*
+data_processed/*
+data/*
 test/*
 tmp/*
 index.json
 index_backup.json
+*.csv
+*.png

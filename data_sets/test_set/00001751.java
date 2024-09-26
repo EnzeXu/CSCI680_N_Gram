@@ -1,1 +1,0 @@
-public class NoGroupTapExpressionGraph extends ExpressionGraph { public NoGroupTapExpressionGraph() { super( SearchOrder.ReverseDepth, not( or( ElementCapture.Primary, new FlowElementExpression( Extent.class ), new FlowElementExpression( Group.class ), new FlowElementExpression( Tap.class ) ) ) ); } }

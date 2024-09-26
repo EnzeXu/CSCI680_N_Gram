@@ -1,1 +1,0 @@
-public class DexClassLoadingException extends Exception { public DexClassLoadingException(Throwable thr) { super("Loading generated dex class has failed", thr); } }

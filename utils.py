@@ -3,11 +3,11 @@ import shutil
 import re
 import json
 import subprocess
-import tqdm
+from tqdm import tqdm
 import random
 import javalang
 from javalang.tokenizer import LexerError
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+# from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
 from repo_names import *
 
@@ -141,8 +141,8 @@ def build_dataset_files(raw_repo_names, start, end):
         index_dic["source"] = dict()
         index_dic["repo_list"] = []
 
-    with tqdm.tqdm(total=len(repo_name_list)) as progress_bar:
-        # for one_repo_name in tqdm.tqdm(repo_name_list):
+    with tqdm(total=len(repo_name_list)) as progress_bar:
+        # for one_repo_name in tqdm(repo_name_list):
         for one_repo_name in repo_name_list:
             if one_repo_name in index_dic["repo_list"]:
                 print(f"skip repo {one_repo_name}")
@@ -168,60 +168,72 @@ def build_dataset_files(raw_repo_names, start, end):
     print(f"Index file saved to {index_save_path}")
 
 #YL split the files in folder "data" into train, validation and test sets, and write the generated sets into the folder "data_set"
-def split_the_files_in_data(source_dir, target_dir):
-    # Set the paths
-    data_dir = source_dir  # Your original data directory containing the .java files
-    output_dir = target_dir  # Folder where train, val, test sets will be stored
-
+def split_the_files_in_data(input_dir, output_dir, train_num_list, test_num):
     # Define the split ratios
-    train_ratio = 0.8  # 80% for training
-    val_ratio = 0.1  # 10% for validation
-    test_ratio = 0.1  # 10% for testing
+    train_ratio = 0.975  # for training
+    # val_ratio = 0.0  # for validation
+    test_ratio = 0.025  # for testing
+
+    # train_target_list = [16000]#[125, 250, 500, 1000, 2000, 4000, 8000, 16000]
+    test_target = test_num
 
     # Create directories for train, val, and test sets
-    train_dir = os.path.join(output_dir, "train_set")
-    val_dir = os.path.join(output_dir, "val_set")
-    test_dir = os.path.join(output_dir, "test_set")
+    # train_dir = os.path.join(output_dir, "train")
+    train_dir_list = [os.path.join(output_dir, f"train_{item}") for item in train_num_list]
+    # val_dir = os.path.join(output_dir, "val")
+    test_dir = os.path.join(output_dir, "test")
 
-    os.makedirs(train_dir, exist_ok=True)
-    os.makedirs(val_dir, exist_ok=True)
+    # os.makedirs(train_dir, exist_ok=True)
+    for one_train_dir in train_dir_list:
+        os.makedirs(one_train_dir, exist_ok=True)
+    # os.makedirs(val_dir, exist_ok=True)
     os.makedirs(test_dir, exist_ok=True)
 
     # Get all .java files from the data directory
-    java_files = [f for f in os.listdir(data_dir) if f.endswith('.java')]
+    java_files = [f for f in os.listdir(input_dir) if f.endswith('.java')]
 
     # Shuffle the list of files to ensure random selection
     random.shuffle(java_files)
 
-    num_of_used_files = 1000
+    # num_of_used_files = 1000
+    num_of_used_files = len(java_files)
+    print(f"num_of_used_files = {num_of_used_files}")
     # Split the files based on the defined ratios
     train_split = int(train_ratio * num_of_used_files )
-    val_split = int( ( train_ratio + val_ratio ) * num_of_used_files )
+    val_split = int(train_ratio * num_of_used_files )
 
     train_files = java_files[:train_split]
-    val_files = java_files[train_split:val_split]
-    test_files = java_files[val_split:num_of_used_files]
+    # val_files = java_files[train_split:val_split]
+    test_files = java_files[val_split:val_split + test_target]
+
+    for i, one_train_size in enumerate(train_num_list):
+        random.shuffle(train_files)
+        specific_size_train_files = train_files[:one_train_size]
+        for file_name in specific_size_train_files:
+            src_path = os.path.join(input_dir, file_name)
+            dest_path = os.path.join(train_dir_list[i], file_name)
+            shutil.copy(src_path, dest_path)
+        print(f"File number in train_{one_train_size} is:", count_files_num_in_folder(train_dir_list[i]))
+
 
     # Move the files to their respective directories
-    for file_name in train_files:
-        src_path = os.path.join(data_dir, file_name)
-        dest_path = os.path.join(train_dir, file_name)
-        shutil.copy(src_path, dest_path)
-    print("the file number in train_file is:",count_files_num_in_folder(train_dir)  )
-
-    for file_name in val_files:
-        src_path = os.path.join(data_dir, file_name)
-        dest_path = os.path.join(val_dir, file_name)
-        shutil.copy(src_path, dest_path)
-    print("the file number in train_file is:",count_files_num_in_folder(val_dir)  )
-
+    # for file_name in train_files:
+    #     src_path = os.path.join(data_dir, file_name)
+    #     dest_path = os.path.join(train_dir, file_name)
+    #     shutil.copy(src_path, dest_path)
+    # print("the file number in train_file is:",count_files_num_in_folder(train_dir))
+    #
+    # for file_name in val_files:
+    #     src_path = os.path.join(data_dir, file_name)
+    #     dest_path = os.path.join(val_dir, file_name)
+    #     shutil.copy(src_path, dest_path)
+    # print("the file number in train_file is:",count_files_num_in_folder(val_dir)  )
 
     for file_name in test_files:
-        src_path = os.path.join(data_dir, file_name)
+        src_path = os.path.join(input_dir, file_name)
         dest_path = os.path.join(test_dir, file_name)
         shutil.copy(src_path, dest_path)
-    print("the file number in train_file is:",count_files_num_in_folder(test_dir)  )
-
+    print("File number in test is:", count_files_num_in_folder(test_dir))
 
     print(f"Files have been split and moved to {output_dir}.")
 
@@ -245,44 +257,51 @@ def write_tokenized_output(output_path, tokens):
         for token in tokens:
             f.write(str(token) + '\n')
 
-def tokenize_data_sets():
-    # Define directories for input and output
-    input_dirs = {
-        "train_set": "data_sets/train_set",
-        "val_set": "data_sets/val_set",
-        "test_set": "data_sets/test_set"
-    }
-
-    output_dirs = {
-        "train_set_tokenized": "data_sets/train_set_tokenized",
-        "val_set_tokenized": "data_sets/val_set_tokenized",
-        "test_set_tokenized": "data_sets/test_set_tokenized"
-    }
+def tokenize_data_sets(input_dir, output_dir):
+    # # Define directories for input and output
+    # input_dirs = {
+    #     # "train_set": "data_sets/train_set",
+    #     # "val_set": "data_sets/val_set",
+    #     # "test_set": "data_sets/test_set",
+    #     "all_set": "data",
+    # }
+    #
+    # output_dirs = {
+    #     # "train_set_tokenized": "data_sets/train_set_tokenized",
+    #     # "val_set_tokenized": "data_sets/val_set_tokenized",
+    #     # "test_set_tokenized": "data_sets/test_set_tokenized",
+    #     "all_set_tokenized": "data_token",
+    # }
 
     # Create output directories if they don't exist
-    for output_dir in output_dirs.values():
-        os.makedirs(output_dir, exist_ok=True)
+    # for output_dir in output_dirs.values():
+    #     os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=True)
 
+    # Tokenize and save for each set (train/test)
+    # for set_name, input_dir in input_dirs.items():
+    #     output_dir = output_dirs[f"{set_name}_tokenized"]
+    for java_file in tqdm(os.listdir(input_dir)):
+        if java_file.endswith(".java"):
+            input_file_path = os.path.join(input_dir, java_file)
+            output_file_path = os.path.join(output_dir, java_file)
 
-    # Tokenize and save for each set (train/val/test)
-    for set_name, input_dir in input_dirs.items():
-        output_dir = output_dirs[f"{set_name}_tokenized"]
-        for java_file in os.listdir(input_dir):
-            if java_file.endswith(".java"):
-                input_file_path = os.path.join(input_dir, java_file)
-                output_file_path = os.path.join(output_dir, java_file)
-
-                # Tokenize the Java file
+            # Tokenize the Java file
+            try:
                 tokens = tokenize_java_file(input_file_path)
-
                 if tokens:  # If tokenization was successful
                     # Write tokenized content to a new file
                     write_tokenized_output(output_file_path, tokens)
-        file_input_count = count_files_num_in_folder(input_dir)
-        file_output_count = count_files_num_in_folder(output_dir)
+            except Exception as e:
+                print(e)
+                tokens = None
 
-        print(f"Number of files in the folder '{input_dir}': {file_input_count}")
-        print(f"Number of files in the folder '{output_dir}': {file_output_count}")
+
+    file_input_count = count_files_num_in_folder(input_dir)
+    file_output_count = count_files_num_in_folder(output_dir)
+
+    print(f"Number of files in the folder '{input_dir}': {file_input_count}")
+    print(f"Number of files in the folder '{output_dir}': {file_output_count}")
 
     print("Tokenization completed for all sets.")
 
@@ -292,38 +311,38 @@ def count_files_num_in_folder(folder_path):
     files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
     return len(files)
 
-def calculate_metrics(ground_truth_lists, predicted_lists):
-    """
-    Calculate Precision, Recall, F1 Score, and Accuracy between the ground truth and predicted tokens.
-    :param ground_truth_lists: A list of ground truth token lists (val_token_lists).
-    :param predicted_lists: A list of predicted token lists.
-    :return: Precision, Recall, F1 Score, and Accuracy.
-    """
-
-    # Flatten the lists to calculate metrics across all tokens
-    ground_truth_flat = [token for sublist in ground_truth_lists for token in sublist]
-    predicted_flat = [token for sublist in predicted_lists for token in sublist]
-
-    # Ensure both lists are of the same length
-    min_length = min(len(ground_truth_flat), len(predicted_flat))
-    ground_truth_flat = ground_truth_flat[:min_length]
-    predicted_flat = predicted_flat[:min_length]
-
-    # Initialize counts
-    tp=0
-
-    # not correct yet
-    for gt, pred in zip(ground_truth_flat, predicted_flat):
-        if gt == pred:
-            tp+=1
-
-    # Calculate Precision, Recall, F1, and Accuracy
-    precision = true_positive / (true_positive + false_positive) if (true_positive + false_positive) > 0 else 0
-    recall = true_positive / (true_positive + false_negative) if (true_positive + false_negative) > 0 else 0
-    f1 = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-    accuracy = (true_positive + true_negative) / len(ground_truth_flat) if len(ground_truth_flat) > 0 else 0
-
-    return precision, recall, f1, accuracy
+# def calculate_metrics(ground_truth_lists, predicted_lists):
+#     """
+#     Calculate Precision, Recall, F1 Score, and Accuracy between the ground truth and predicted tokens.
+#     :param ground_truth_lists: A list of ground truth token lists (val_token_lists).
+#     :param predicted_lists: A list of predicted token lists.
+#     :return: Precision, Recall, F1 Score, and Accuracy.
+#     """
+#
+#     # Flatten the lists to calculate metrics across all tokens
+#     ground_truth_flat = [token for sublist in ground_truth_lists for token in sublist]
+#     predicted_flat = [token for sublist in predicted_lists for token in sublist]
+#
+#     # Ensure both lists are of the same length
+#     min_length = min(len(ground_truth_flat), len(predicted_flat))
+#     ground_truth_flat = ground_truth_flat[:min_length]
+#     predicted_flat = predicted_flat[:min_length]
+#
+#     # Initialize counts
+#     tp=0
+#
+#     # not correct yet
+#     for gt, pred in zip(ground_truth_flat, predicted_flat):
+#         if gt == pred:
+#             tp+=1
+#
+#     # Calculate Precision, Recall, F1, and Accuracy
+#     precision = true_positive / (true_positive + false_positive) if (true_positive + false_positive) > 0 else 0
+#     recall = true_positive / (true_positive + false_negative) if (true_positive + false_negative) > 0 else 0
+#     f1 = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+#     accuracy = (true_positive + true_negative) / len(ground_truth_flat) if len(ground_truth_flat) > 0 else 0
+#
+#     return precision, recall, f1, accuracy
 
 
 if __name__ == "__main__":
@@ -334,17 +353,19 @@ if __name__ == "__main__":
     # print(num_c, num_f)
     # sum_class: 126269, sum_func: 1136926
     # Index file saved to index.json
-    # build_dataset_files(repo_names, 0, 17)
+    # build_dataset_files(repo_names, 70, 100)
 
     #remember, everytime run the split_the_files_in_data(), delete the data_sets, otherwise it will generate many!!!!!!!!
-    # split_the_files_in_data("data", "data_sets" )
+    split_the_files_in_data("data_token", "data_processed")
     #tokenize the train/val/test_set and save the results
     # tokenize_data_sets()
-    groundtruth_list = [ ['public', 'class', 'ErrorCodeTest', 'extends', 'TestCase', '{', 'public', 'void', 'testErrorCodes', '(', ')', 'throws', 'Exception', '{', 'HashMap', '<', 'Byte', ',', 'String', '>', 'errMap', '=', 'new', 'HashMap', '<', 'Byte', ',', 'String', '>', '(', ')', ';', 'OperationFactory', 'opFact', '=', 'new', 'BinaryOperationFactory', '(', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x01', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x02', ')', ',', 'EXISTS', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x03', ')', ',', '2BIG', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x04', ')', ',', 'INVAL', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x05', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x06', ')', ',', 'DELTA', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x07', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x81', ')', ',', 'UNKNOWN', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x82', ')', ',', 'NO', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x83', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x84', ')', ',', 'INTERNAL', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x85', ')', ',', 'BUSY', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x86', ')', ',', 'TEMP', ')', ';', 'int', 'opaque', '=', '0', ';', 'for', '(', 'final', 'Entry', '<', 'Byte', ',', 'String', '>', 'err', ':', 'errMap', '.', 'entrySet', '(', ')', ')', '{', 'byte', '[', ']', 'b', '=', 'new', 'byte', '[', '24', '+', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ']', ';', 'b', '[', '0', ']', '=', '(', 'byte', ')', '0x81', ';', 'b', '[', '7', ']', '=', 'err', '.', 'getKey', '(', ')', ';', 'b', '[', '11', ']', '=', '(', 'byte', ')', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ';', 'b', '[', '15', ']', '=', '(', 'byte', ')', '++', 'opaque', ';', 'System', '.', 'arraycopy', '(', 'err', '.', 'getValue', '(', ')', '.', 'getBytes', '(', ')', ',', '0', ',', 'b', ',', '24', ',', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ')', ';', 'GetOperation', 'op', '=', 'opFact', '.', 'get', '(', 'key', ',', 'new', 'GetOperation', '.', 'Callback', '(', ')', '{', 'public', 'void', 'receivedStatus', '(', 'OperationStatus', 's', ')', '{', 'assert', '!', 's', '.', 'isSuccess', '(', ')', ';', 'assert', 'err', '.', 'getValue', '(', ')', '.', 'equals', '(', 's', '.', 'getMessage', '(', ')', ')', ';', '}', 'public', 'void', 'gotData', '(', 'String', 'k', ',', 'int', 'flags', ',', 'byte', '[', ']', 'data', ')', '{', '}', 'public', 'void', 'complete', '(', ')', '{', '}', '}', ')', ';', 'ByteBuffer', 'bb', '=', 'ByteBuffer', '.', 'wrap', '(', 'b', ')', ';', 'bb', '.', 'flip', '(', ')', ';', 'op', '.', 'readFromBuffer', '(', 'bb', ')', ';', '}', '}', '}'] ]
-    predict_list = [ ['public', 'class', 'ErrorCodeTest', 'extends'] ]
-    precision, recall, f1, accuracy = calculate_metrics(groundtruth_list, predict_list)
 
-    print(f"Precision: {precision}")
-    print(f"Recall: {recall}")
-    print(f"F1 Score: {f1}")
-    print(f"Accuracy: {accuracy}")
+
+    # groundtruth_list = [ ['public', 'class', 'ErrorCodeTest', 'extends', 'TestCase', '{', 'public', 'void', 'testErrorCodes', '(', ')', 'throws', 'Exception', '{', 'HashMap', '<', 'Byte', ',', 'String', '>', 'errMap', '=', 'new', 'HashMap', '<', 'Byte', ',', 'String', '>', '(', ')', ';', 'OperationFactory', 'opFact', '=', 'new', 'BinaryOperationFactory', '(', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x01', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x02', ')', ',', 'EXISTS', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x03', ')', ',', '2BIG', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x04', ')', ',', 'INVAL', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x05', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x06', ')', ',', 'DELTA', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x07', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x81', ')', ',', 'UNKNOWN', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x82', ')', ',', 'NO', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x83', ')', ',', 'NOT', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x84', ')', ',', 'INTERNAL', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x85', ')', ',', 'BUSY', ')', ';', 'errMap', '.', 'put', '(', 'new', 'Byte', '(', '(', 'byte', ')', '0x86', ')', ',', 'TEMP', ')', ';', 'int', 'opaque', '=', '0', ';', 'for', '(', 'final', 'Entry', '<', 'Byte', ',', 'String', '>', 'err', ':', 'errMap', '.', 'entrySet', '(', ')', ')', '{', 'byte', '[', ']', 'b', '=', 'new', 'byte', '[', '24', '+', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ']', ';', 'b', '[', '0', ']', '=', '(', 'byte', ')', '0x81', ';', 'b', '[', '7', ']', '=', 'err', '.', 'getKey', '(', ')', ';', 'b', '[', '11', ']', '=', '(', 'byte', ')', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ';', 'b', '[', '15', ']', '=', '(', 'byte', ')', '++', 'opaque', ';', 'System', '.', 'arraycopy', '(', 'err', '.', 'getValue', '(', ')', '.', 'getBytes', '(', ')', ',', '0', ',', 'b', ',', '24', ',', 'err', '.', 'getValue', '(', ')', '.', 'length', '(', ')', ')', ';', 'GetOperation', 'op', '=', 'opFact', '.', 'get', '(', 'key', ',', 'new', 'GetOperation', '.', 'Callback', '(', ')', '{', 'public', 'void', 'receivedStatus', '(', 'OperationStatus', 's', ')', '{', 'assert', '!', 's', '.', 'isSuccess', '(', ')', ';', 'assert', 'err', '.', 'getValue', '(', ')', '.', 'equals', '(', 's', '.', 'getMessage', '(', ')', ')', ';', '}', 'public', 'void', 'gotData', '(', 'String', 'k', ',', 'int', 'flags', ',', 'byte', '[', ']', 'data', ')', '{', '}', 'public', 'void', 'complete', '(', ')', '{', '}', '}', ')', ';', 'ByteBuffer', 'bb', '=', 'ByteBuffer', '.', 'wrap', '(', 'b', ')', ';', 'bb', '.', 'flip', '(', ')', ';', 'op', '.', 'readFromBuffer', '(', 'bb', ')', ';', '}', '}', '}'] ]
+    # predict_list = [ ['public', 'class', 'ErrorCodeTest', 'extends'] ]
+    # precision, recall, f1, accuracy = calculate_metrics(groundtruth_list, predict_list)
+    #
+    # print(f"Precision: {precision}")
+    # print(f"Recall: {recall}")
+    # print(f"F1 Score: {f1}")
+    # print(f"Accuracy: {accuracy}")

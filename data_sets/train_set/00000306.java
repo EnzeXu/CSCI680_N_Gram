@@ -1,1 +1,0 @@
-public class AllTests { public static void main(String[] args) { junit.textui.TestRunner.run(suite()); } public static Test suite() { TestSuite suite = new TestSuite("Framework Tests"); suite.addTestSuite(ExtensionTest.class); suite.addTestSuite(ActiveTestTest.class); suite.addTestSuite(RepeatedTestTest.class); return suite; } }

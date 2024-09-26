@@ -1,1 +1,0 @@
-public class TestMalformedJoinExpressionGraph extends ExpressionGraph { public TestMalformedJoinExpressionGraph() { super( SearchOrder.ReverseDepth, and( ElementCapture.Primary, new FlowElementExpression( HashJoin.class ), not( new FlowElementExpression( HashJoin.class, TypeExpression.Topo.SpliceOnly ) ) ) ); } }

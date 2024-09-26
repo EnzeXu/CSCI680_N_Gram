@@ -1,1 +1,0 @@
-public class CoGroupingPartitioner extends HasherPartitioner implements org.apache.tez.runtime.library.api.Partitioner { public CoGroupingPartitioner( Configuration configuration ) { setConf( configuration ); } public int getPartition( Object key, Object value, int numReduceTasks ) { return ( hashCode( ( (IndexTuple) key ).getTuple() ) & Integer.MAX_VALUE ) % numReduceTasks; } }

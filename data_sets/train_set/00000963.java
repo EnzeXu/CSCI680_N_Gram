@@ -1,1 +1,0 @@
-public class Blort { void voidFunction() { } void edgeSplitMoveException() { try { hashCode(); hashCode(); } catch (Throwable tr) { } } void infiniteLoop() { while (true) { } } }
