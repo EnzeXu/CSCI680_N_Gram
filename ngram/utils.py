@@ -172,9 +172,9 @@ def build_dataset_files(raw_repo_names, start, end):
 #YL split the files in folder "data" into train, validation and test sets, and write the generated sets into the folder "data_set"
 def split_the_files_in_data(input_dir, output_dir, train_num_list, test_num):
     # Define the split ratios
-    train_ratio = 0.975  # for training
+    train_ratio = 0.9  # for training
     # val_ratio = 0.0  # for validation
-    test_ratio = 0.025  # for testing
+    test_ratio = 0.1  # for testing
 
     # train_target_list = [16000]#[125, 250, 500, 1000, 2000, 4000, 8000, 16000]
     test_target = test_num
