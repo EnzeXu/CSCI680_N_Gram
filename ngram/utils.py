@@ -9,7 +9,7 @@ import javalang
 from javalang.tokenizer import LexerError
 # from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
-from repo_names import *
+from .repo_names import *
 
 
 def extract_and_rename_java_files(repo_url, destination_folder, index, index_dic, progress_bar=None):
