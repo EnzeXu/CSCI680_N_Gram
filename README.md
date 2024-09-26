@@ -6,6 +6,10 @@ CSCI 680 AI for Software Engineering - N-Gram
 ### Authors: 
 1) Enze Xu (exu03@wm.edu)
 2) Yi Lin (ylin13@wm.edu).
+---
+
+### 2-page Report:
+[Assignment_Report_Enze_and_Yi.pdf](Assignment_Report_Enze_and_Yi.pdf)
 
 ---
 
@@ -114,7 +118,7 @@ timestring,train_num,N,task_success_count,task_num,precision
 
 # 3. Report
 
-The assignment report is available in the file report.pdf.
+The assignment report is available in the attached file Assignment_Report_Enze_and_Yi.pdf.
 
 
 # 4. Questions
