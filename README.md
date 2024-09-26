@@ -20,6 +20,7 @@ CSCI 680 AI for Software Engineering - N-Gram
 * [4 Questions](#4-questions)
 
 ---
+![heatmap](https://github.com/user-attachments/assets/4e0ca210-8325-46eb-b083-9740452cd5b4)
 
 
 ---
