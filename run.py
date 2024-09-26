@@ -8,7 +8,7 @@ def run():
     n_range = range(2, 20)
 
     # Prepare GitHub repos: build_dataset_files(repo_names, 0, 100) will collect about 6,857 Java classes and 312,971 Java functions.
-    build_dataset_files(repo_names, 0, 2)
+    build_dataset_files(repo_names, 0, 10)
     # Use the javalang package to tokenize all Java files
     tokenize_data_sets(input_dir="data", output_dir="data_token")
     # Split files into the train set and test set
