@@ -6,6 +6,7 @@ venv/*
 
 data_backup/*
 data_token/*
+data_dump/*
 data_processed/*
 data/*
 test/*
