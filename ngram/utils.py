@@ -5,6 +5,8 @@ import json
 import subprocess
 from tqdm import tqdm
 import random
+import datetime
+import pytz
 import javalang
 from javalang.tokenizer import LexerError
 # from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
@@ -310,6 +312,13 @@ def tokenize_data_sets(input_dir, output_dir):
 def count_files_num_in_folder(folder_path):
     files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
     return len(files)
+
+
+def get_timestring(time_string="%Y%m%d_%H%M%S_%f"):
+    est = pytz.timezone('America/New_York')
+    utc_now = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
+    est_now = utc_now.astimezone(est)
+    return est_now.strftime(time_string)
 
 # def calculate_metrics(ground_truth_lists, predicted_lists):
 #     """

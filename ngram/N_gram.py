@@ -3,6 +3,7 @@ import os
 import pickle
 import argparse
 from collections import defaultdict
+from .utils import get_timestring
 # from utils import calculate_metrics
 from tqdm import tqdm
 
@@ -117,7 +118,7 @@ class N_gram:
         #     n_minus_1_gram = n_gram[:-1]
         #     self.probabilities[n_gram] = self.n_grams[n_gram] / self.n_minus_1_grams[n_minus_1_gram]
 
-    def run_test(self, token_lists):
+    def run_test(self, token_lists, log_path="logs.csv"):
         task_num = 0
         task_success_count = 0
         print(f"Begin: task_success_count = {task_success_count}")
@@ -136,8 +137,8 @@ class N_gram:
                 task_success_count += int(truth_token == pred_token)
         precision = task_success_count / task_num
         print(f"N: {self.N}, train_num: {self.train_num} | precision on the test set: {task_success_count} / {task_num} = {precision * 100:.2f} %")
-        with open("logs.csv", "a") as f:
-            f.write(f"{self.train_num},{self.N},{task_success_count},{task_num},{precision}\n")
+        with open(log_path, "a") as f:
+            f.write(f"{get_timestring()},{self.train_num},{self.N},{task_success_count},{task_num},{precision}\n")
 
             # for i in range(len(tokens) - self.N + 1):
             #     n_gram = tuple(tokens[i:i + self.N])
@@ -219,21 +220,22 @@ def run_one_task():
     n_gram_model.run_test(n_gram_model.token_dataset_test)
 
 
-def run_multi_task():
-    for one_train_num in [16000]:
-        for n in range(2, 11):
-            n_gram_model = N_gram(n, one_train_num)
-            n_gram_model.generate_datasets(
-                os.path.join("data_processed", f"train_{one_train_num}"),
-                os.path.join("data_processed", f"test"),
-            )
-            n_gram_model.generate_vocabulary_train()
-            n_gram_model.run_test(n_gram_model.token_dataset_test)
+# def run_multi_task():
+#     for one_train_num in [16000]:
+#         for n in range(2, 11):
+#             n_gram_model = N_gram(n, one_train_num)
+#             n_gram_model.generate_datasets(
+#                 os.path.join("data_processed", f"train_{one_train_num}"),
+#                 os.path.join("data_processed", f"test"),
+#             )
+#             n_gram_model.generate_vocabulary_train()
+#             n_gram_model.run_test(n_gram_model.token_dataset_test)
 
 
 if __name__ == "__main__":
+    pass
     # run_one_task()
-    run_multi_task()
+    # run_multi_task()
     # N = 4
     # n_gram_model = N_gram(N)
     # # next_token = n_gram_model.predict_next_token(("throws", "Exception", "{"))
