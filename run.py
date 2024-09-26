@@ -5,7 +5,7 @@ from ngram.utils import *
 def run():
     train_num_list = [100]
     test_num = 100
-    n_range = range(2, 11)
+    n_range = range(2, 20)
 
     # Prepare GitHub repos: build_dataset_files(repo_names, 0, 100) will collect about 6,857 Java classes and 312,971 Java functions.
     build_dataset_files(repo_names, 0, 2)
