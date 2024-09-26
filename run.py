@@ -23,6 +23,7 @@ def run():
             )
             n_gram_model.generate_vocabulary_train()
             n_gram_model.run_test(n_gram_model.token_dataset_test)
+            del n_gram_model
 
 
 if __name__ == "__main__":

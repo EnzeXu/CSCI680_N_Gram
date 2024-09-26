@@ -120,6 +120,7 @@ class N_gram:
     def run_test(self, token_lists):
         task_num = 0
         task_success_count = 0
+        print(f"Begin: task_success_count = {task_success_count}")
         for tokens in tqdm(token_lists):
             # Add start and end markers
             tokens = ['<s>'] * (self.N - 1) + tokens + ['</s>']
