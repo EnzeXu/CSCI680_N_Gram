@@ -1,6 +1,13 @@
 CSCI 680 AI for Software Engineering - N-Gram
 ===
 
+---
+
+### Authors: 
+1) Enze Xu (exu03@wm.edu)
+2) Yi Lin (ylin13@wm.edu).
+
+---
 
 # Contents
 
@@ -9,9 +16,13 @@ CSCI 680 AI for Software Engineering - N-Gram
   * [2.1 Preparations](#21-preparations)
   * [2.2 Install Packages](#22-install-packages)
   * [2.3 Run N-gram](#23-run-n-gram)
-* [3 Questions](#3-questions)
+* [3 Report](#3-report)
+* [4 Questions](#4-questions)
+
+---
 
 
+---
 
 # 1. Introduction
 Code completion in Java aims to automatically complete the code for Java methods or classes. The N-gram is a language model that can predict the next token in a sequence by learning the probabilities of token sequences based on their occurrences in the training data and choosing the token with the highest probability to follow.
@@ -100,9 +111,12 @@ timestring,train_num,N,task_success_count,task_num,precision
 20240926_010826_613846,250,10,5891,73566,0.08007775330995297
 ```
 
+# 3. Report
+
+The assignment report is available in the file report.pdf.
 
 
-# 3. Questions
+# 4. Questions
 
 If you have any questions, please contact xezpku@gmail.com.
 
