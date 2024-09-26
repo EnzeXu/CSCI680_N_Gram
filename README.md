@@ -64,7 +64,7 @@ You can use the command deactivate to exit the virtual environment at any time.
 
 (1) Run N-gram demo
 
-The N-gram demo script will utilize 100 classes for the training set and 100 classes for the test set. The hyperparameter values will range from 2 to 10.
+The N-gram demo script will utilize 250 classes for the training set and 100 classes for the test set. The hyperparameter values will range from 2 to 10.
 
 ```shell
 (venv) ~/CSCI680_N_Gram $ python run_demo.py
@@ -84,6 +84,20 @@ The N-gram complete script will utilize 125 / 250 / 500 / 1,000 / 2,000 / 4,000 
 
 ```shell
 (venv) ~/CSCI680_N_Gram $ cat logs.txt
+```
+
+An example log result for the N-gram demo script is as follows:
+```text
+timestring,train_num,N,task_success_count,task_num,precision
+20240926_010819_573420,250,2,16496,73566,0.2242340211510752
+20240926_010821_567154,250,3,18965,73566,0.2577957208493054
+20240926_010822_525474,250,4,16171,73566,0.21981621944920207
+20240926_010823_264350,250,5,12582,73566,0.17103009542451675
+20240926_010823_928997,250,6,9878,73566,0.13427398526493217
+20240926_010824_587305,250,7,8370,73566,0.11377538536824076
+20240926_010825_257572,250,8,7236,73566,0.09836065573770492
+20240926_010825_934722,250,9,6414,73566,0.0871870157409673
+20240926_010826_613846,250,10,5891,73566,0.08007775330995297
 ```
 
 
